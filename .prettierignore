@@ -1,0 +1,12 @@
+# .prettierignore
+
+# default is
+# **/.git
+# **/.svn
+# **/.hg
+# **/node_modules
+
+##> User defined.
+[Tt]emp/
+package-lock.json
+yarn.lock
