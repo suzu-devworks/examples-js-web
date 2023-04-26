@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="ute-8" />
+    <title>examples-pwa-camera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="title">examples pwa camera.</h1>
+    </header>
+
+    <main>
+      <section class="camera">
+        <h2 class="title">&#x1F4F9;Camera</h2>
+        <div class="camera-container floating-owner">
+          <video id="video" autoplay muted playsinline>Video stream not available.</video>
+          <div class="floating-box">
+            <button id="switch-button" class="button icon-button">
+              <img class="icons icon_flip_camera_android" />Switch photo
+            </button>
+            <button id="shutter-button" class="button icon-button icon-button-right">
+              <img class="icons icon_add_a_photo" />Take photo
+            </button>
+          </div>
+        </div>
+        <p id="video-info" class="note"></p>
+      </section>
+
+      <section class="photo">
+        <h2 class="title">&#x1F4F8;Photo</h2>
+        <canvas id="canvas"> </canvas>
+        <div class="photo-container floating-owner">
+          <img id="photo" alt="The screen capture will appear in this box." />
+          <div class="floating-box">
+            <button id="clear-button" class="button icon-button icon-button-right">
+              <img class="icons icon_delete" />Clear photo
+            </button>
+          </div>
+        </div>
+        <p id="photo-info" class="note"></p>
+      </section>
+
+      <section class="settings">
+        <h2 class="title">&#x2699;Settings</h2>
+        <div class="setting-container">
+          <!-- fixed -->
+          <div>
+            <div id="specify-item-device" class="setting-item">
+              <label class="setting-name">Device</label>
+              <div class="setting-values">
+                <select id="specify-item-device-selector"></select>
+                <button id="apply-device-button" class="button button-primary">apply</button>
+              </div>
+            </div>
+
+            <div id="specify-item-point" class="setting-item" data-name="pointOfInterest">
+              <label class="setting-name">pointOfInterest</label>
+              <div class="setting-values">
+                <input type="checkbox" id="specify-item-point-input" />
+                <label for="specify-item-point-input" class="checkbox-value"></label>
+                <button id="point-button" class="button button-secondary" disabled="disabled">
+                  apply
+                </button>
+                <span class="note">Toggle it on, then tap the camera screen.</span>
+                <p class="point-value note"></p>
+                <div class="focus-point"></div>
+                <div class="focus-ghost"></div>
+              </div>
+            </div>
+
+            <div id="setting-item-aspectRatio" class="setting-item" data-name="aspectRatio">
+              <label class="setting-name">aspectRatio</label>
+              <div class="setting-values"></div>
+            </div>
+
+            <div id="setting-item-width" class="setting-item" data-name="width">
+              <label class="setting-name">width</label>
+              <div class="setting-values">
+                <input type="range" />
+                <label class="range-value"></label>
+              </div>
+            </div>
+
+            <div id="setting-item-height" class="setting-item" data-name="height">
+              <label class="setting-name">height</label>
+              <div class="setting-values">
+                <input type="range" />
+                <label class="range-value"></label>
+              </div>
+            </div>
+
+            <div id="setting-item-frameRate" class="setting-item" data-name="frameRate">
+              <label class="setting-name">frameRate</label>
+              <div class="setting-values">
+                <input type="range" />
+                <label class="range-value"></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- variable -->
+          <div id="setting-items"></div>
+        </div>
+      </section>
+
+      <section class="logs">
+        <h2 class="title">&#x270D;logs</h2>
+        <div id="logs" class="log-container"></div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script type="module" src="pwa-register.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
