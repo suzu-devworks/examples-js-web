@@ -1,0 +1,33 @@
+{
+  "name": "examples-express-ejs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node bin/www",
+    "debug": "nodemon",
+    "lint:eslint": "eslint . --ext .js,.jsx,.mjs",
+    "lint:prettier": "prettier . \"!test*\" --check",
+    "lint": "run-p -c --aggregate-output lint:*",
+    "lintfix:eslint": "npm run lint:eslint -- --fix",
+    "lintfix:prettier": "npm run lint:prettier -- --write",
+    "lintfix": "run-s lintfix:prettier lintfix:eslint "
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "^4.3.4",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-dart-sass": "^1.0.4",
+    "express-session": "^1.17.3",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "sass": "^1.56.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.20",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.0"
+  }
+}
