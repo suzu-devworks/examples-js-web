@@ -1,0 +1,16 @@
+{
+  "name": "examples PWA camera",
+  "short_name": "examples-pwa-camera",
+  "description": "Example using Media Capture and Streams API and PWA.",
+  "icons": [
+    {
+      "src": "assets/icon/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_coror": "#2346a5",
+  "background_color": "#dcdcca"
+}
