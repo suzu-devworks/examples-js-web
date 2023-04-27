@@ -35,7 +35,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Generate static files
-        run: mkdir artifact && cd artifact && gh-pages-static.sh
+        run: mkdir artifact && cd artifact &&  sh ./.github/gh-pages-static.sh
         shell: sh
 
       - name: Upload artifact
