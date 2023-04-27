@@ -25,6 +25,9 @@ app.use(
     dest: path.join(__dirname, "public"),
     debug: true,
     outputStyle: "compressed",
+    //For wrokspaces.
+    //includePaths: [path.resolve(__dirname, "node_modules")],
+    includePaths: [...require.resolve.paths("@primer/css")],
     indentedSyntax: false, // true = .sass and false = .scss
     //prefix:  '/prefix'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
   })
