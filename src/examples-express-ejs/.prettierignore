@@ -1,0 +1,11 @@
+## .prettierignore default
+# **/.git
+# **/.svn
+# **/.hg
+# **/node_modules
+[Tt]emp/
+*.log
+package.json
+package-lock.json
+
+public/stylesheets/*.css
