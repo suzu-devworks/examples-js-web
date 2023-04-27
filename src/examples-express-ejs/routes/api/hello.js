@@ -1,9 +1,9 @@
 const express = require("express")
 const router = express.Router()
 
-/* GET users listing. */
+// GET hello world API.
 router.get("/", function (req, res, _next) {
-  res.send("respond with a resource")
+  res.json({ message: "Hello World" })
 })
 
 module.exports = router
