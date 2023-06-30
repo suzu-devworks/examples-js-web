@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC P2P</title>
+    <style>
+      footer {
+        display: block;
+        height: 10rem;
+      }
+
+      .video {
+        margin: 3px;
+      }
+
+      .video-box {
+        border: 1px solid #000;
+        height: 240px;
+        width: 320px;
+      }
+
+      .outlined-button {
+        background-color: #2196f3;
+        border-radius: 4px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 36px;
+        margin-left: 4px;
+        outline: none;
+        padding: 0 16px;
+        text-align: center;
+      }
+
+      .outlined-button:active {
+        transform: translate(2px, 2px);
+      }
+
+      .signaling-text {
+        display: block;
+        width: 44em;
+        height: 4em;
+      }
+
+      .radio-label {
+        font-size: 0.8rem;
+        font-weight: normal;
+        line-height: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <p>Communicate between two machines using a signaling server.</p>
+    </header>
+
+    <main>
+      <section>
+        <button id="start-button" class="outlined-button">Start</button>
+        <button id="stop-button" class="outlined-button">Stop</button>
+        <button id="connect-button" class="outlined-button">Connect</button>
+        <button id="hangup-button" class="outlined-button">Hang Up</button>
+      </section>
+
+      <section>
+        <input type="radio" id="ice-type-v" name="ICE-candidate" value="Vanilla ICE" />
+        <label for="ice-type-v" class="radio-label">Vanilla ICE</label>
+        <input type="radio" id="ice-type-t" name="ICE-candidate" value="Trickle ICE" checked />
+        <label for="ice-type-t" class="radio-label">Trickle ICE</label>
+      </section>
+
+      <section class="video">
+        <video id="local-video" autoplay control class="video-box"></video>
+        <video id="remote-video" autoplay control class="video-box"></video>
+      </section>
+
+      <section>
+        <div id="message-list"></div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
