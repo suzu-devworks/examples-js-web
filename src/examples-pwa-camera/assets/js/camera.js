@@ -21,22 +21,24 @@ export class Camera {
     }
 
     if (this.#navigator.mediaDevices.getUserMedia === undefined) {
-      const getUserMediaLegacy =
-        this.#navigator.webkitGetUserMedia || this.#navigator.mozGetUserMedia
+      this.#navigator.mediaDevices.getUserMedia = (constraints) => {
+        const getUserMediaLegacy =
+          this.#navigator.webkitGetUserMedia || this.#navigator.mozGetUserMedia
 
-      if (!getUserMediaLegacy) {
-        return Promise.reject(new Error("getUserMedia is not implemented in this browser"))
+        if (!getUserMediaLegacy) {
+          return Promise.reject(new Error("getUserMedia is not implemented in this browser"))
+        }
+
+        return new Promise((resolve, reject) =>
+          getUserMediaLegacy.call(this.#navigator, constraints, resolve, reject)
+        )
       }
-
-      return new Promise((resolve, reject) =>
-        getUserMediaLegacy.call(this.#navigator, constraints, resolve, reject)
-      )
     }
   }
 
-  #raiseAppliedConstraintsEvent(preferences = null) {
+  #raiseAppliedConstraintsEvent(_preferences = null) {
     const supportedConstraints = this.#navigator.mediaDevices.getSupportedConstraints()
-    const [track] = this.#stream?.getVideoTracks()
+    const [track] = this.#stream?.getVideoTracks() ?? [null]
     const capabilities = track?.getCapabilities()
     const constraints = track?.getConstraints()
     const settings = track?.getSettings()
@@ -53,7 +55,7 @@ export class Camera {
   }
 
   get front() {
-    const [track] = this.#stream?.getVideoTracks()
+    const [track] = this.#stream?.getVideoTracks() ?? [null]
     const settings = track?.getSettings()
     const front = settings?.facingMode === "user"
     return front
@@ -78,13 +80,13 @@ export class Camera {
     this.#stream = await this.#navigator.mediaDevices.getUserMedia(constraints)
 
     this.#video.srcObject = this.#stream
-    this.#video.onloadedmetadata = () => video.play()
+    this.#video.onloadedmetadata = () => this.#video.play()
     this.#video.addEventListener("canplay", async () => {
       if (!this.#streaming) {
         this.#streaming = true
         this.#raiseAppliedConstraintsEvent()
 
-        const [track] = this.#stream.getVideoTracks()
+        const [track] = this.#stream?.getVideoTracks() ?? [null]
         this.#captor = new ImageCapture(track)
       }
     })
@@ -102,7 +104,7 @@ export class Camera {
   async applyConstraints(parameters) {
     console.log("applyConstraints.", parameters)
 
-    const [track] = this.#stream?.getVideoTracks()
+    const [track] = this.#stream?.getVideoTracks() ?? [null]
 
     // Item other then linked items appear to set
     // even if they are not merged with the previous set values.

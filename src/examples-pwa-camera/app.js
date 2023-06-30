@@ -183,7 +183,8 @@ import {
   if (pointOfInterestItem) {
     configurePointOfInterestSelector(document, pointOfInterestItem)
 
-    function getPointOfInterestEnabled(document) {
+    // eslint-disable-next-line no-inner-declarations
+    function getPointOfInterestEnabled(_document) {
       return pointOfInterestItem.querySelector("input[type='checkbox']")?.checked ?? false
     }
 
@@ -192,7 +193,7 @@ import {
     const display = pointOfInterestItem.querySelector(".point-value")
     const buttons = pointOfInterestItem.querySelectorAll("button")
 
-    video.addEventListener("mouseenter", (ev) => {
+    video.addEventListener("mouseenter", (_ev) => {
       if (!getPointOfInterestEnabled(document)) {
         return
       }
@@ -202,7 +203,7 @@ import {
       }
     })
 
-    video.addEventListener("mouseleave", (ev) => {
+    video.addEventListener("mouseleave", (_ev) => {
       if (!getPointOfInterestEnabled(document)) {
         return
       }
@@ -260,6 +261,7 @@ import {
       ev.preventDefault()
     })
 
+    // eslint-disable-next-line no-inner-declarations
     async function onApplyPointOfInterest(point, appendName, appendValue) {
       const constraints = {}
       constraints.pointOfInterest = { exact: [point] }
