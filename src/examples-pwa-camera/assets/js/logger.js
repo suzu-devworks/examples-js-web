@@ -30,7 +30,7 @@ export class Logger {
   logError(error, options) {
     let data = error
     if (typeof error === "string") {
-      data = { message: parameter }
+      data = { message: error }
     }
 
     if (error instanceof Error) {

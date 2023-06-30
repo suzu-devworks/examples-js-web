@@ -26,7 +26,7 @@
         console.error("Service Worker Registration failed: ", err)
       })
 
-    window.addEventListener("beforeinstallprompt", (ev) => {
+    window.addEventListener("beforeinstallprompt", (_ev) => {
       console.log("Service Worker beforeinstallprompt")
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       //ev.preventDefault();

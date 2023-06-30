@@ -1,0 +1,5 @@
+## .eslintignore default
+# node_modules/
+# .*
+#!.eslintrc.*
+[Tt]emp/

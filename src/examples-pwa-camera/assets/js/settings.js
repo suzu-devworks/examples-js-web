@@ -9,7 +9,7 @@ export { setControlsEnabled, subscribeControlsEvent } from "./controls.js"
 
 const settingItemPrefix = "setting-item-"
 
-export function configureDefaultControls(document) {
+export function configureDefaultControls(_document) {
   // TODO
 }
 
@@ -24,7 +24,7 @@ export function configureDefaultControlsEvent(document, onclick) {
     subscribeCheckboxEvent(item, onclick)
   }
 
-  const checkes = document.querySelectorAll("input[type='radio']")
+  const _checkes = document.querySelectorAll("input[type='radio']")
 }
 
 export function configureDeviceSelector(document, item, camera) {
@@ -151,11 +151,11 @@ export function setCameraSettingValues(document, parent, preferences, onclick) {
       let item = document.getElementById(id)
       if (!item) {
         item = createCheckboxInput(document, id, name)
-        parent?.appendChild(control)
+        parent?.appendChild(item)
         subscribeCheckboxEvent(item, onclick)
       }
       setCheckboxCapability(item, capability)
-      setCheckboxValue(control, value)
+      setCheckboxValue(item, value)
       continue
     }
 
@@ -304,7 +304,7 @@ function subscribeCheckboxEvent(item, onchange) {
   input?.addEventListener("change", onchange)
 }
 
-function setCheckboxCapability(item, capability) {
+function setCheckboxCapability(_item, _capability) {
   // nothing to do.
 }
 
