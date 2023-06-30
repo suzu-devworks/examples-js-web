@@ -15,5 +15,6 @@
   "javascript.format.enable": false,
   "typescript.format.enable": false,
   "json.format.enable": false,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "livePreview.portNumber": 3900
 }

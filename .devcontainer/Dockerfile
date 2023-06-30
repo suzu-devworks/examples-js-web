@@ -1,4 +1,4 @@
-ARG VARIANT="20-bullseye"
+ARG VARIANT="20-bullseye-slim"
 
 # For develop-stage.
 # > docker build --target develop-stage .
@@ -8,7 +8,7 @@ FROM node:${VARIANT} as develop-stage
 RUN set -x \
     && apt update \
     && apt install -y --no-install-recommends apt-utils dialog 2>&1 \
-    && apt install -y procps iproute2 nano \
+    && apt install -y git procps iproute2 nano \
     ;
 
 ## Create a non-root user to use if preferred
