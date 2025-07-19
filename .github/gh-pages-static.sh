@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-SOURCE='../src'
+SOURCE='../packages'
 DIST=`pwd`
 
 EXCLUDE={'file1.txt','dir1/*','dir2'}

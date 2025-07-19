@@ -1,6 +1,7 @@
 {
   "name": "examples-js-web",
   "version": "1.0.0",
+  "type": "module",
   "description": "Workspace for studying javascript web programming.",
   "repository": {
     "type": "git",
@@ -10,6 +11,7 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "src/*"
-  ]
+    "packages/*"
+  ],
+  "packageManager": "pnpm@10.13.1"
 }
