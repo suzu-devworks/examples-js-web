@@ -22,16 +22,13 @@ export class Camera {
 
     if (this.#navigator.mediaDevices.getUserMedia === undefined) {
       this.#navigator.mediaDevices.getUserMedia = (constraints) => {
-        const getUserMediaLegacy =
-          this.#navigator.webkitGetUserMedia || this.#navigator.mozGetUserMedia
+        const getUserMediaLegacy = this.#navigator.webkitGetUserMedia || this.#navigator.mozGetUserMedia
 
         if (!getUserMediaLegacy) {
           return Promise.reject(new Error("getUserMedia is not implemented in this browser"))
         }
 
-        return new Promise((resolve, reject) =>
-          getUserMediaLegacy.call(this.#navigator, constraints, resolve, reject)
-        )
+        return new Promise((resolve, reject) => getUserMediaLegacy.call(this.#navigator, constraints, resolve, reject))
       }
     }
   }

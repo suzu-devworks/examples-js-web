@@ -21,6 +21,7 @@
   "editor.formatOnType": true,
   "eslint.format.enable": false,
   "eslint.validate": [
+    // Tricks for breaking lines.
     "javascript",
     "javascriptreact",
     "typescript",
@@ -36,9 +37,7 @@
   "json.format.enable": false,
   "markdownlint.config": {
     "MD033": {
-      "allowed_elements": [
-        "br"
-      ]
+      "allowed_elements": ["br"]
     }
   },
   "typescript.format.enable": false,

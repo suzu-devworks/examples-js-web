@@ -167,8 +167,7 @@ import {
       })
 
       const settings = ev.detail?.settings
-      const message =
-        `size: ${settings?.width}x${settings?.height}` + `, aspectRatio: ${settings?.aspectRatio}`
+      const message = `size: ${settings?.width}x${settings?.height}` + `, aspectRatio: ${settings?.aspectRatio}`
       const info = document.getElementById("video-info")
       info.innerText = message
     } catch (err) {

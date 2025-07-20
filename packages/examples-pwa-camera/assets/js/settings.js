@@ -1,9 +1,4 @@
-import {
-  subscribeInputLabel,
-  createLabeledRadio,
-  setSelections,
-  setControlsEnabled,
-} from "./controls.js"
+import { subscribeInputLabel, createLabeledRadio, setSelections, setControlsEnabled } from "./controls.js"
 
 export { setControlsEnabled, subscribeControlsEvent } from "./controls.js"
 
@@ -202,9 +197,7 @@ function subscribeRadioEvent(item, onchange) {
 function setRadioCapability(item, capability) {
   const name = item?.dataset.name
   const imageTracks = ["whiteBalanceMode", "exposureMode", "focusMode"]
-  const entries = imageTracks.includes(name)
-    ? ["none", "manual", "single-shot", "continuous"]
-    : capability
+  const entries = imageTracks.includes(name) ? ["none", "manual", "single-shot", "continuous"] : capability
 
   const options = entries.map((value) => {
     const enabled = capability?.includes(value) ?? false
