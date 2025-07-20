@@ -1,0 +1,16 @@
+# .prettierignore
+
+# default is
+# **/.git
+# **/.svn
+# **/.hg
+# **/node_modules
+
+# Ignore artifacts:
+build
+coverage
+dist/
+temp/
+LICENSE.md
+pnpm-lock.yaml
+pnpm-workspace.yaml

@@ -1,7 +1,7 @@
 # .gitattributes
 
 # make sure everyone has the same behavior for all files
-* text=auto
+* text=auto eol=lf
 
 # for docker configuration
 *.conf text eol=lf
