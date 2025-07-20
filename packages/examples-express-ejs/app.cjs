@@ -5,10 +5,10 @@ const cookieParser = require("cookie-parser")
 const logger = require("morgan")
 const sassMiddleware = require("express-dart-sass")
 
-const indexRouter = require("./routes/index")
-const usersRouter = require("./routes/users")
-const helloApiRouter = require("./routes/api/hello")
-const memoApiRouter = require("./routes/api/memo")
+const indexRouter = require("./routes/index.cjs")
+const usersRouter = require("./routes/users.cjs")
+const helloApiRouter = require("./routes/api/hello.cjs")
+const memoApiRouter = require("./routes/api/memo.cjs")
 
 const app = express()
 
@@ -42,7 +42,7 @@ app.use("/api/hello", helloApiRouter)
 app.use("/api/memo", memoApiRouter)
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (_req, _res, next) {
   next(createError(404))
 })
 

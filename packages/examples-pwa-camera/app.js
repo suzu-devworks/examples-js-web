@@ -182,7 +182,7 @@ import {
   if (pointOfInterestItem) {
     configurePointOfInterestSelector(document, pointOfInterestItem)
 
-    // eslint-disable-next-line no-inner-declarations
+     
     function getPointOfInterestEnabled(_document) {
       return pointOfInterestItem.querySelector("input[type='checkbox']")?.checked ?? false
     }
@@ -260,7 +260,7 @@ import {
       ev.preventDefault()
     })
 
-    // eslint-disable-next-line no-inner-declarations
+     
     async function onApplyPointOfInterest(point, appendName, appendValue) {
       const constraints = {}
       constraints.pointOfInterest = { exact: [point] }

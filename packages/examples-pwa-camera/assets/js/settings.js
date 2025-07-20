@@ -22,7 +22,7 @@ export function configureDefaultControlsEvent(document, onclick) {
   const _checkes = document.querySelectorAll("input[type='radio']")
 }
 
-export function configureDeviceSelector(document, item, camera) {
+export function configureDeviceSelector(_document, item, camera) {
   const selector = item?.querySelector("select")
   if (!selector) {
     return
