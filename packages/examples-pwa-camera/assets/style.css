@@ -225,12 +225,12 @@ canvas {
 
 .log-container .log-info {
   color: var(--color-black);
-  background: rgb(130 220 130 / 30%);
+  background: rgb(130 220 130 / 0.3);
 }
 
 .log-container .log-error {
   color: var(--color-black);
-  background: rgb(255 0 0 / 30%);
+  background: rgb(255 0 0 / 0.3);
 }
 
 input,
@@ -270,7 +270,7 @@ label:has(> input) {
 
 .button:hover,
 .button:active {
-  box-shadow: 0 0 5px rgb(255 215 0 / 100%);
+  box-shadow: 0 0 5px rgb(255 215 0 / 1);
 }
 
 .button:active {
@@ -312,7 +312,7 @@ label:has(> input) {
   line-height: 1;
   color: var(--color-white);
   pointer-events: auto;
-  background: rgb(200 200 200 / 40%);
+  background: rgb(200 200 200 / 0.4);
   border: 1px solid var(--color-white);
   border-radius: 10px;
 }
@@ -324,7 +324,7 @@ label:has(> input) {
 
 #shutter-button {
   color: var(--color-white);
-  background: rgb(255 30 30 / 40%);
+  background: rgb(255 30 30 / 0.4);
 }
 
 .icons {
@@ -368,10 +368,10 @@ label:has(> input) {
   width: 48px;
   height: 48px;
   pointer-events: none;
-  background-color: rgb(100 255 0 / 100%);
+  background-color: rgb(100 255 0 / 1);
   mask: url("icon/crop_free.svg") center / 36px 36px no-repeat;
 }
 
 .focus-ghost {
-  background-color: rgb(100 255 0 / 50%);
+  background-color: rgb(100 255 0 / 0.5);
 }

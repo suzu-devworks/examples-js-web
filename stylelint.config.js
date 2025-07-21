@@ -2,4 +2,7 @@
 export default {
   extends: ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
   ignoreFiles: ["packages/examples-express-ejs/**/*.css"],
+  rules: {
+    "alpha-value-notation": "number",
+  },
 }

@@ -85,6 +85,12 @@ importers:
         specifier: ^14.1.1
         version: 14.1.1
 
+  packages/examples-web-chart:
+    dependencies:
+      http-server:
+        specifier: ^14.1.1
+        version: 14.1.1
+
 packages:
 
   '@babel/code-frame@7.27.1':
