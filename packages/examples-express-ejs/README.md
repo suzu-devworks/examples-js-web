@@ -1,8 +1,8 @@
-# examples-js-express
+# examples-express-ejs
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-js-express](#examples-js-express)
+- [examples-express-ejs](#examples-express-ejs)
   - [References](#references)
   - [Getting Started](#getting-started)
   - [Development](#development)
@@ -45,28 +45,19 @@ DEBUG=examples-js-express:* pnpm run start
 ### How the project was initialized
 
 ```shell
-mkdir examples-js-express
-cd examples-js-express
+mkdir -p packages/examples-express-ejs
+cd packages/examples-express-ejs
 
-express --view ejs --css sass -git
+# Generate package.json
+pnpm init
+
+pnpm dlx express-generator --view ejs --css sass --git
 
 # un-supported package in template.
-npm uninstall node-sass-middleware
+pnpm remove node-sass-middleware
 
-# add
-npm install express-dart-sass sass
-npm install express-session
-
-npm install @primer/css
-
-npm install --save-dev nodemon
-npm install --save-dev eslint prettier eslint-config-prettier
-npm install --save-dev npm-run-all
-
-# generate eslintrc.js
-npm init @eslint/config
-
-# check outdated
-npm outdated
+pnpm add express-dart-sass sass
+pnpm add express-session
+pnpm add @primer/css
 
 ```
