@@ -1,0 +1,27 @@
+.svg-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: middle;
+  pointer-events: auto;
+  background-color: rgb(126 126 126);
+
+  &:hover,
+  &:active {
+    background-color: rgb(255 190 10 / 0.8);
+  }
+}
+
+.svg-icon.icon-dashboard-customize {
+  mask: url("icon/dashboard_customize.svg") center / 1em 1em no-repeat;
+}
+
+.svg-icon.icon-settings {
+  mask: url("icon/settings.svg") center / 1em 1em no-repeat;
+}
+
+.svg-icon.icon-speed {
+  mask: url("icon/speed.svg") center / 1em 1em no-repeat;
+}

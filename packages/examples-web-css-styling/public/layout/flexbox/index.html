@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="ute-8" />
+    <title>flexbox - examples-webui-design</title>
+    <!-- https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Introduction -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .wrapper > div {
+        border-radius: 5px;
+        background-color: rgb(207, 232, 220);
+        padding: 1em;
+        margin: 0.1em;
+      }
+      .wrapper {
+        display: flex;
+        resize: horizontal;
+        overflow: hidden;
+      }
+      .wrapper > div {
+        /* flex <flex-grow> */
+        /* flex <flex-basis> */
+        /* flex <flex-grow> <flex-basis> */
+        /* flex <flex-grow> <flex-shrink> */
+        /* flex <flex-grow> <flex-shrink> <flex-basis> */
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Flexible Box Layout</h1>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="box1">One</div>
+        <div class="box2">Two</div>
+        <div class="box3">Three</div>
+      </div>
+      <div class="wrapper">
+        <div class="box1">One</div>
+        <div class="box2">Two</div>
+        <div class="box3">Three</div>
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
