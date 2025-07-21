@@ -26,7 +26,7 @@ cd examples-js-express
 
 express --view ejs --css sass -git
 
-# un-suppoted package in template.
+# un-supported package in template.
 npm uninstall node-sass-middleware
 
 # add
