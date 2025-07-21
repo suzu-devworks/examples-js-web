@@ -42,12 +42,8 @@ This project was initialized with the following command:
 mkdir -p packages/examples-pwa-camera
 cd packages/examples-pwa-camera
 
+# Generate package.json
 pnpm init
-
-pnpm add -D eslint
-pnpm add -D eslint-config-prettier
-pnpm add -D npm-run-all
-pnpm add -D prettier
 
 pnpm add http-server
 ```
