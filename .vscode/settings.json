@@ -22,13 +22,6 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "eslint.format.enable": false,
-  "eslint.validate": [
-    // Tricks for breaking lines.
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "vue"
-  ],
   "files.associations": {
     ".dockerignore": "ignore",
     ".env.*": "properties"

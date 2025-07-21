@@ -9,13 +9,8 @@
     "vscode": {
       "extensions": [
         "EditorConfig.EditorConfig",
-        "christian-kohler.npm-intellisense",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
-        "ms-vscode.live-server",
-        "syler.sass-indented",
-        "DotJoshJohnson.xml",
-        "jock.svg",
         "DavidAnson.vscode-markdownlint",
         "stylelint.vscode-stylelint"
       ]
