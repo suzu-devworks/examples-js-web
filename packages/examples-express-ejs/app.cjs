@@ -27,7 +27,7 @@ app.use(
     dest: path.join(__dirname, "public"),
     debug: true,
     outputStyle: "compressed",
-    //For wrokspaces.
+    //For workspaces.
     //includePaths: [path.resolve(__dirname, "node_modules")],
     includePaths: [...require.resolve.paths("@primer/css")],
     indentedSyntax: false, // true = .sass and false = .scss

@@ -12,7 +12,9 @@ However, please note that the code discussed here is based on my personal opinio
 
 ## Hosting Server
 
-Start the [Github Page](https://suzu-devworks.github.io/examples-js-web/)
+Start the Github Page
+
+- [examples-pwa-camera](https://suzu-devworks.github.io/examples-js-web/examples-pwa-camera/)
 
 ## More documents
 

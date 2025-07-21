@@ -1,20 +1,53 @@
 # examples-pwa-camera
 
-<!-- --------------- -->
+In this project, you will learn how to use the W3C Media Capture and Stream API to work with the camera.
 
-## Create project
+I will also make it a PWA.
+
+## Table of Contents <!-- omit in toc -->
+
+- [examples-pwa-camera](#examples-pwa-camera)
+  - [References](#references)
+  - [Getting Started](#getting-started)
+  - [Development](#development)
+    - [How the project was initialized](#how-the-project-was-initialized)
+
+## References
+
+- [Media Capture and Streams API - MDN](https://developer.mozilla.org/ja/docs/Web/API/Media_Capture_and_Streams_API)
+- [Media Capture and Streams - W3C](https://www.w3.org/TR/mediacapture-streams/)
+- [MediaStream Image Capture - W3C](https://www.w3.org/TR/image-capture/)
+
+## Getting Started
+
+Install dependency packages:
+
+```shell
+pnpm install
+```
+
+Start server:
+
+```shell
+pnpm run start
+```
+
+## Development
+
+### How the project was initialized
+
+This project was initialized with the following command:
 
 ```sh
-mkdir examples-pwa-camera
-cd examples-pwa-camera
+mkdir -p packages/examples-pwa-camera
+cd packages/examples-pwa-camera
 
-yarn init --private
+pnpm init
 
-yarn add --dev eslint
-yarn add --dev eslint-config-prettier
-yarn add --dev npm-run-all
-yarn add --dev prettier
+pnpm add -D eslint
+pnpm add -D eslint-config-prettier
+pnpm add -D npm-run-all
+pnpm add -D prettier
 
-yarn add http-server
-
+pnpm add http-server
 ```
