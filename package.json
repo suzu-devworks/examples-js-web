@@ -16,30 +16,38 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
-    "lint": "eslint .",
-    "format": "prettier --write ."
+    "lint": "pnpm run lint:style && pnpm run lint:es",
+    "lint:es": "eslint . --cache",
+    "lint:style": "stylelint --cache \"**/*.{css,scss}\"",
+    "format": "prettier --write --cache ."
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": [
-      "prettier --write --ignore-unknown"
+      "pnpm run format --ignore-unknown"
     ],
     "packages/**/*.{js,mjs,cjs,ts,mts,cts}": [
-      "eslint --fix"
+      "pnpm run lint:es --fix"
+    ],
+    "packages/**/*.{css,scss}": [
+      "pnpm run lint:style --fix"
     ]
   },
   "devDependencies": {
-    "@eslint/css": "^0.10.0",
     "@eslint/js": "^9.31.0",
     "@eslint/json": "^0.13.0",
     "eslint": "^9.31.0",
     "globals": "^16.3.0",
     "lint-staged": "^16.1.2",
-    "npm-run-all": "^4.1.5",
     "prettier": "3.6.2",
     "simple-git-hooks": "^2.13.0",
+    "stylelint": "^16.22.0",
+    "stylelint-config-recess-order": "^7.1.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
     "typescript-eslint": "^8.37.0"
   },
   "packageManager": "pnpm@10.13.1"

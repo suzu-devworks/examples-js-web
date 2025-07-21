@@ -16,7 +16,8 @@
         "syler.sass-indented",
         "DotJoshJohnson.xml",
         "jock.svg",
-        "DavidAnson.vscode-markdownlint"
+        "DavidAnson.vscode-markdownlint",
+        "stylelint.vscode-stylelint"
       ]
     }
   },
