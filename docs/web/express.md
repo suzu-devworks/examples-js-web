@@ -4,7 +4,7 @@ Fast, unopinionated, minimalist web framework for Node.js.
 
 ## Reference
 
-- [Express ](https://expressjs.com/ja/)
+- [Express](https://expressjs.com/ja/)
 
 ### Middlewares
 

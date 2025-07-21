@@ -1,15 +1,52 @@
 {
   "name": "examples-js-web",
+  "private": true,
+  "type": "module",
   "version": "1.0.0",
+  "author": "A.suzuki <suzu.devworks@gmail.com>",
   "description": "Workspace for studying javascript web programming.",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/suzu-devworks/examples-js-web.git"
   },
-  "author": "A.suzuki <suzu.devworks@gmail.com>",
-  "license": "MIT",
-  "private": true,
   "workspaces": [
-    "src/*"
-  ]
+    "packages/*"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
+    "lint": "pnpm run lint:style && pnpm run lint:es",
+    "lint:es": "eslint . --cache",
+    "lint:style": "stylelint --cache \"**/*.{css,scss}\"",
+    "format": "prettier --write --cache ."
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "pnpm run format --ignore-unknown"
+    ],
+    "packages/**/*.{js,mjs,cjs,ts,mts,cts}": [
+      "pnpm run lint:es --fix"
+    ],
+    "packages/**/*.{css,scss}": [
+      "pnpm run lint:style --fix"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@eslint/json": "^0.13.0",
+    "eslint": "^9.31.0",
+    "globals": "^16.3.0",
+    "lint-staged": "^16.1.2",
+    "prettier": "3.6.2",
+    "simple-git-hooks": "^2.13.0",
+    "stylelint": "^16.22.0",
+    "stylelint-config-recess-order": "^7.1.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "typescript-eslint": "^8.37.0"
+  },
+  "packageManager": "pnpm@10.13.1"
 }

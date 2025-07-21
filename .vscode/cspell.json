@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    ".git",
+    ".devcontainer",
+    ".config",
+    ".github",
+    ".vscode",
+    ".editorconfig",
+    ".gitignore",
+    "node_modules",
+    "package.json",
+    "pnpm-*.yaml",
+    ".*cache"
+  ],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": ["webrtc"],
+  "ignoreWords": [],
+  "import": []
+}

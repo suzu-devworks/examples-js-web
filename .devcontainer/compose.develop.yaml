@@ -1,0 +1,17 @@
+services:
+  dev:
+    image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
+    networks:
+      - interconnect
+    tty: true
+    ports:
+      - "8080:8080"
+    volumes:
+      # Forwards the local Docker socket to the container.
+      - /var/run/docker.sock:/var/run/docker-host.sock
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - ../..:/workspaces:cached
+      - ./config/ssl:/etc/ssl/local:ro
+networks:
+  interconnect:
+    driver: bridge

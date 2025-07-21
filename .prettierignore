@@ -6,7 +6,11 @@
 # **/.hg
 # **/node_modules
 
-##> User defined.
-[Tt]emp/
-package-lock.json
-yarn.lock
+# Ignore artifacts:
+build
+coverage
+dist/
+temp/
+LICENSE.md
+pnpm-lock.yaml
+pnpm-workspace.yaml
