@@ -1,8 +1,10 @@
 {
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+  "[css][scss][sass]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
   },
-  "[jsonc]": {
+  "[json][jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[markdown]": {

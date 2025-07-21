@@ -182,7 +182,6 @@ import {
   if (pointOfInterestItem) {
     configurePointOfInterestSelector(document, pointOfInterestItem)
 
-     
     function getPointOfInterestEnabled(_document) {
       return pointOfInterestItem.querySelector("input[type='checkbox']")?.checked ?? false
     }
@@ -260,7 +259,6 @@ import {
       ev.preventDefault()
     })
 
-     
     async function onApplyPointOfInterest(point, appendName, appendValue) {
       const constraints = {}
       constraints.pointOfInterest = { exact: [point] }

@@ -1,8 +1,7 @@
 /* color palette  */
 :root {
-  --color-white: #ffffff;
-  --color-black: #000000;
-
+  --color-white: #fff;
+  --color-black: #000;
   --color-primary: #1976d2;
   --color-secondary: #26a69a;
   --color-accent: #9c27b0;
@@ -12,16 +11,12 @@
   --color-negative: #c10015;
   --color-info: #31ccec;
   --color-warning: #f2c037;
-
   --header-background: linear-gradient(175deg, var(--color-dark-page) 40%, var(--color-white));
   --header-color: var(--color-white);
-
   --section-background: #fafafa;
   --section-color: var(--color-black);
-
   --container-background: #404040;
   --container-color: var(--color-white);
-
   --settings-background: #c8c8c8;
   --settings-color: var(--color-black);
 }
@@ -48,8 +43,8 @@ header {
   top: 0;
   z-index: 100;
   width: 100vw;
-  background: var(--header-background);
   color: var(--header-color);
+  background: var(--header-background);
 }
 
 footer {
@@ -62,8 +57,8 @@ main {
 }
 
 section {
-  background: var(--section-background);
   color: var(--section-color);
+  background: var(--section-background);
 }
 
 canvas {
@@ -71,17 +66,17 @@ canvas {
 }
 
 .title {
+  padding: 0.2rem;
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.2rem;
 }
 
 .note {
+  padding: 0.2rem 0.5rem;
   font-size: 0.8rem;
   font-weight: normal;
   line-height: 1.2rem;
   word-break: break-all;
-  padding: 0.2rem 0.5rem;
 }
 
 .floating-owner {
@@ -90,12 +85,12 @@ canvas {
 
 .floating-box {
   position: absolute;
-  display: block;
   bottom: 1rem;
+  display: block;
   width: 98%;
-  background: transparent;
   color: var(--color-black);
   pointer-events: none;
+  background: transparent;
 }
 
 .camera {
@@ -114,10 +109,10 @@ canvas {
   display: block;
   width: 48vw;
   height: 40vh;
+  color: var(--container-color);
+  background: var(--container-background);
   border: 1px solid var(--container-background);
   box-shadow: 2px 2px 3px var(--container-background);
-  background: var(--container-background);
-  color: var(--container-color);
 }
 
 .camera-container video {
@@ -127,10 +122,11 @@ canvas {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .camera h2 {
     display: none;
   }
+
   .camera-container {
     display: block;
     width: 98vw;
@@ -150,10 +146,10 @@ canvas {
   display: block;
   width: 48vw;
   height: 40vh;
+  color: var(--container-color);
+  background: var(--container-background);
   border: 1px solid var(--container-background);
   box-shadow: 2px 2px 3px var(--container-background);
-  background: var(--container-background);
-  color: var(--container-color);
 }
 
 .photo-container img {
@@ -163,12 +159,13 @@ canvas {
   object-fit: contain;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .photo {
     position: relative !important;
-    z-index: 0;
     top: 0;
+    z-index: 0;
   }
+
   .photo-container {
     display: block;
     width: 98vw;
@@ -180,16 +177,13 @@ canvas {
   display: block;
   width: 96vw;
   padding: 0.5rem;
-  border: 1px solid black;
-  box-shadow: 2px 2px 3px black;
   line-height: 2rem;
-}
-
-.setting-container {
-  border: 1px solid var(--settings-background);
-  box-shadow: 2px 2px 3px var(--settings-background);
-  background: var(--settings-background);
   color: var(--settings-color);
+  background: var(--settings-background);
+  border: 1px solid black;
+  border: 1px solid var(--settings-background);
+  box-shadow: 2px 2px 3px black;
+  box-shadow: 2px 2px 3px var(--settings-background);
 }
 
 .setting-item {
@@ -201,7 +195,7 @@ canvas {
   margin: 0.2rem 0.5rem;
 }
 
-.setting-name:after {
+.setting-name::after {
   content: ":";
 }
 
@@ -211,17 +205,17 @@ canvas {
 }
 
 .logs {
-  margin-top: 1rem;
   padding: 1rem 0.5rem;
+  margin-top: 1rem;
   border-top: 1px dashed #c3c3c3;
 }
 
 .log-container {
+  width: 96vw;
+  overflow-y: auto;
   font-family: monospace;
   font-weight: normal;
   line-height: 2rem;
-  width: 96vw;
-  overflow-y: auto;
   scroll-behavior: smooth;
 }
 
@@ -230,13 +224,13 @@ canvas {
 }
 
 .log-container .log-info {
-  background: rgba(130, 220, 130, 0.3);
   color: var(--color-black);
+  background: rgb(130 220 130 / 30%);
 }
 
 .log-container .log-error {
-  background: rgba(255, 0, 0, 0.3);
   color: var(--color-black);
+  background: rgb(255 0 0 / 30%);
 }
 
 input,
@@ -268,15 +262,15 @@ label:has(> input) {
 }
 
 .button {
-  font-family: sans-serif;
-  font-size: 16px;
   display: inline-block;
   padding: 0.2rem 0.5rem;
+  font-family: sans-serif;
+  font-size: 16px;
 }
 
 .button:hover,
 .button:active {
-  box-shadow: 0px 0px 5px rgba(255, 215, 0, 1);
+  box-shadow: 0 0 5px rgb(255 215 0 / 100%);
 }
 
 .button:active {
@@ -294,33 +288,33 @@ label:has(> input) {
 }
 
 .button-primary {
+  color: var(--color-white);
+  background: var(--color-primary);
   border: 1px solid var(--color-white);
   border-radius: 5px;
-  background: var(--color-primary);
-  color: var(--color-white);
 }
 
 .button-secondary {
+  color: var(--color-white);
+  background: var(--color-secondary);
   border: 1px solid var(--color-white);
   border-radius: 5px;
-  background: var(--color-secondary);
-  color: var(--color-white);
 }
 
 .icon-button {
   display: inline-block;
-  padding: 0;
-  margin: 1rem;
   width: 48px;
   height: 48px;
+  padding: 0;
+  margin: 1rem;
+  overflow: hidden;
   font-size: 24px;
   line-height: 1;
-  overflow: hidden;
-  border: 1px solid var(--color-white);
-  border-radius: 10px;
-  background: rgba(200, 200, 200, 0.4);
   color: var(--color-white);
   pointer-events: auto;
+  background: rgb(200 200 200 / 40%);
+  border: 1px solid var(--color-white);
+  border-radius: 10px;
 }
 
 .icon-button.icon-button-right {
@@ -329,60 +323,55 @@ label:has(> input) {
 }
 
 #shutter-button {
-  background: rgba(255, 30, 30, 0.4);
   color: var(--color-white);
+  background: rgb(255 30 30 / 40%);
 }
 
 .icons {
-  font-size: 24px;
+  display: inline-block;
   width: 48px;
   height: 48px;
-  line-height: 1;
   overflow: hidden;
-  display: inline-block;
-  white-space: nowrap;
+  font-size: 24px;
+  line-height: 1;
   text-indent: 100%;
+  white-space: nowrap;
 }
 
-.icons.icon_add_a_photo {
+.icons.icon-add-a-photo {
+  background-color: var(--color-white);
   mask: url("icon/add_a_photo.svg") center / 36px 36px no-repeat;
-  -webkit-mask: url("icon/add_a_photo.svg") center / 36px 36px no-repeat;
-  background-color: var(--color-white);
 }
 
-.icons.icon_delete {
+.icons.icon-delete {
+  background-color: var(--color-white);
   mask: url("icon/delete.svg") center / 36px 36px no-repeat;
-  -webkit-mask: url("icon/delete.svg") center / 36px 36px no-repeat;
-  background-color: var(--color-white);
 }
 
-.icons.icon_flip_camera_android {
+.icons.icon-flip-camera {
+  background-color: var(--color-white);
   mask: url("icon/flip_camera_android.svg") center / 36px 36px no-repeat;
-  -webkit-mask: url("icon/flip_camera_android.svg") center / 36px 36px no-repeat;
-  background-color: var(--color-white);
 }
 
-.icons.icon_settings {
-  mask: url("icon/settings.svg") center / 36px 36px no-repeat;
-  -webkit-mask: url("icon/settings.svg") center / 36px 36px no-repeat;
+.icons.icon-settings {
   background-color: var(--color-white);
+  mask: url("icon/settings.svg") center / 36px 36px no-repeat;
 }
 
 .focus-point,
 .focus-ghost {
-  display: none;
   position: fixed;
-  width: 48px;
-  height: 48px;
   top: -24px;
   left: -24px;
   z-index: 999;
-  mask: url("icon/crop_free.svg") center / 36px 36px no-repeat;
-  -webkit-mask: url("icon/crop_free.svg") center / 36px 36px no-repeat;
-  background-color: rgba(100, 255, 0, 1);
+  display: none;
+  width: 48px;
+  height: 48px;
   pointer-events: none;
+  background-color: rgb(100 255 0 / 100%);
+  mask: url("icon/crop_free.svg") center / 36px 36px no-repeat;
 }
 
 .focus-ghost {
-  background-color: rgba(100, 255, 0, 0.5);
+  background-color: rgb(100 255 0 / 50%);
 }
