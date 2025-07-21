@@ -1,0 +1,25 @@
+{
+  "name": "examples-web-css-styling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pnpm run build && pnpm run start:https",
+    "start:https": "http-server -c-1 ./public --ssl --key /etc/ssl/local/localhost.key --cert /etc/ssl/local/localhost.crt",
+    "build": "pnpm run build:css",
+    "build:css": "sass --style compressed --no-source-map public/assets/:public/assets/generated/",
+    "clean": "pnpm run clean:css",
+    "clean:css": "find . -name *.css -exec rm {} +"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2"
+  }
+}

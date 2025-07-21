@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="ute-8" />
+    <title>positioning - examples-webui-design</title>
+    <!-- https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Introduction -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      footer {
+        height: 100vh;
+      }
+      p {
+        background-color: rgb(207, 232, 220);
+        border: 2px solid rgb(79, 185, 227);
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      .container {
+        position: relative;
+        margin-bottom: 3em;
+      }
+      .positioned {
+        background: rgba(255, 84, 104, 0.3);
+        border: 2px solid rgb(255, 84, 104);
+      }
+      .positioned.relative {
+        position: relative;
+        top: 30px;
+        left: 30px;
+        font-size: 0;
+      }
+      .positioned.relative::before {
+        font-size: 1rem;
+        font-weight: bold;
+        content: "This is my relatively positioned element.";
+      }
+      .positioned.absolute {
+        position: absolute;
+        background: rgba(255, 84, 104, 0.3);
+        border: 2px solid rgb(255, 84, 104);
+        top: 30px;
+        left: 30px;
+        font-size: 0;
+      }
+      .positioned.absolute::before {
+        font-size: 1rem;
+        font-weight: bold;
+        content: "This is my absolutely positioned element.";
+      }
+      .positioned.fixed {
+        position: fixed;
+        top: 60px;
+        left: 60px;
+        font-size: 0;
+      }
+      .positioned.fixed::before {
+        font-size: 1rem;
+        font-weight: bold;
+        content: "Fixed.";
+      }
+      .positioned.sticky {
+        position: sticky;
+        top: 30px;
+        left: 30px;
+        font-size: 0;
+      }
+      .positioned.sticky::before {
+        font-size: 1rem;
+        font-weight: bold;
+        content: "Sticky.";
+      }
+      .positioned.sticky + * {
+        height: 30vh;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Positioning</h1>
+    </header>
+
+    <main>
+      <section class="container">
+        <h2>Static positioning</h2>
+        <p>I am a basic block level element.</p>
+        <p class="positioned static">I am a basic block level element.</p>
+        <p>I am a basic block level element.</p>
+      </section>
+
+      <section class="container">
+        <h2>Relative positioning</h2>
+        <p>I am a basic block level element.</p>
+        <p class="positioned relative">I am a basic block level element.</p>
+        <p>I am a basic block level element.</p>
+      </section>
+
+      <section class="container">
+        <h2>Absolute positioning</h2>
+        <p>I am a basic block level element.</p>
+        <p class="positioned absolute">I am a basic block level element.</p>
+        <p>I am a basic block level element.</p>
+      </section>
+
+      <section class="container">
+        <h2>Fixed positioning</h2>
+        <p>I am a basic block level element.</p>
+        <p class="positioned fixed">I am a basic block level element.</p>
+        <p>I am a basic block level element.</p>
+      </section>
+
+      <section class="container">
+        <h2>Sticky positioning</h2>
+        <p>I am a basic block level element.</p>
+        <p class="positioned sticky">I am a basic block level element.</p>
+        <p>I am a basic block level element.</p>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
