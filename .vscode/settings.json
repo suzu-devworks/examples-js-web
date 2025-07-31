@@ -13,6 +13,12 @@
     },
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
     "source.fixAll.eslint": "explicit"
@@ -22,9 +28,11 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "eslint.format.enable": false,
+  "eslint.useFlatConfig": true,
   "files.associations": {
     ".dockerignore": "ignore",
-    ".env.*": "properties"
+    ".env.*": "properties",
+    ".svg": "svg"
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,

@@ -1,6 +1,6 @@
 // VerticalHoverLine - How To Create A Vertical Hover Line In Chart JS 4
 //
-// seealso:
+// see also:
 //  - https://www.youtube.com/watch?v=-6xqMLOi7Uc
 //
 // how to use:

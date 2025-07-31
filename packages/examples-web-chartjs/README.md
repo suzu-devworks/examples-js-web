@@ -1,8 +1,10 @@
-# examples-web-chart
+# examples-web-chartjs
+
+Chart.js is a free, open-source JavaScript library for data visualization, which supports eight chart types: bar, line, area, pie (doughnut), bubble, radar, polar, and scatter
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-web-chart](#examples-web-chart)
+- [examples-web-chartjs](#examples-web-chartjs)
   - [References](#references)
   - [Getting Started](#getting-started)
   - [Development](#development)
@@ -33,8 +35,8 @@ pnpm run start
 This project was initialized with the following command:
 
 ```sh
-mkdir -p packages/examples-web-chart
-cd packages/examples-web-chart
+mkdir -p packages/examples-web-chartjs
+cd packages/examples-web-chartjs
 
 # Generate package.json
 pnpm init
