@@ -2,9 +2,9 @@
   "name": "examples-web-chartjs",
   "version": "1.0.0",
   "description": "",
-  "private": true,
+  "main": "index.js",
   "scripts": {
-    "start": "http-server -p 3000 -c-1"
+    "start": "http-server -c-1"
   },
   "keywords": [],
   "author": "",

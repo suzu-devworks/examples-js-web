@@ -3,7 +3,7 @@
   "ignorePaths": [],
   "dictionaryDefinitions": [],
   "dictionaries": [],
-  "words": ["chartjs", "Crypters", "Infotech", "Luxon", "Metas", "Udemy"],
+  "words": ["chartjs", "Metas"],
   "ignoreWords": [],
   "import": ["../../.vscode/cspell.json"]
 }
