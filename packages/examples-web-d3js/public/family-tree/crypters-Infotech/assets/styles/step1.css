@@ -1,0 +1,14 @@
+/* step 1 */
+svg {
+  font-family: serif;
+  box-shadow: 1px 1px 5px 2px rgb(0 0 0 / 0.2);
+}
+
+circle {
+  fill: blue;
+}
+
+.step1 path {
+  fill: none;
+  stroke: red;
+}

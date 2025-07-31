@@ -45,8 +45,8 @@ importers:
   packages/examples-express-ejs:
     dependencies:
       '@primer/css':
-        specifier: ^22.0.1
-        version: 22.0.1(@primer/primitives@10.7.0)
+        specifier: ^22.0.2
+        version: 22.0.2(@primer/primitives@10.7.0)
       cookie-parser:
         specifier: ~1.4.7
         version: 1.4.7
@@ -106,6 +106,12 @@ importers:
       sass:
         specifier: ^1.89.2
         version: 1.89.2
+
+  packages/examples-web-d3js:
+    dependencies:
+      http-server:
+        specifier: ^14.1.1
+        version: 14.1.1
 
 packages:
 
@@ -306,11 +312,11 @@ packages:
     resolution: {integrity: sha512-dfUnCxiN9H4ap84DvD2ubjw+3vUNpstxa0TneY/Paat8a3R4uQZDLSvWjmznAY/DoahqTHl9V46HF/Zs3F29pg==}
     engines: {node: '>= 10.0.0'}
 
-  '@primer/css@22.0.1':
-    resolution: {integrity: sha512-vXWB0qQ1JjvqwuP0EpBnKKi5wh+sqJ11u2AFCo/ljp63NQ6VjHRKJef4GvzfwzUPOR1VQl/f+gMxYKszdHL90A==}
+  '@primer/css@22.0.2':
+    resolution: {integrity: sha512-FfXd1ga05oewKjDRi9cPmy7BSnb/6QOjTIxAtDj94Hoyk+qJxHhgvhbcnZwBfL3WKP6HeUT3PnsT9k+43Bmg3Q==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      '@primer/primitives': 9.x || 10.x
+      '@primer/primitives': 10.x || 11.x
 
   '@primer/primitives@10.7.0':
     resolution: {integrity: sha512-732Dq7c4znkewwRkXldV0NLLppfGrDJHPXsXO2QLHwJxKLwi2icKkzcOR77vb5g0ThObZJrRqlB/4DYajIiyyQ==}
@@ -789,8 +795,8 @@ packages:
   flatted@3.3.3:
     resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
 
-  follow-redirects@1.15.9:
-    resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==}
+  follow-redirects@1.15.11:
+    resolution: {integrity: sha512-deG2P0JfjrTxl50XGCDyfI97ZGVCxIpfKYmfyrQ54n5FO/0gfIES8C/Psl6kWVDolizcaaxZJnTS0QSMxvnsBQ==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -1827,7 +1833,7 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.5.1
     optional: true
 
-  '@primer/css@22.0.1(@primer/primitives@10.7.0)':
+  '@primer/css@22.0.2(@primer/primitives@10.7.0)':
     dependencies:
       '@primer/primitives': 10.7.0
 
@@ -2377,7 +2383,7 @@ snapshots:
 
   flatted@3.3.3: {}
 
-  follow-redirects@1.15.9: {}
+  follow-redirects@1.15.11: {}
 
   forwarded@0.2.0: {}
 
@@ -2476,7 +2482,7 @@ snapshots:
   http-proxy@1.18.1:
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.9
+      follow-redirects: 1.15.11
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
