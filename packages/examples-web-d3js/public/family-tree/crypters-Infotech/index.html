@@ -1,0 +1,46 @@
+<!doctype html>
+<title>Family Tree</title>
+<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="./assets/styles/step1.css" />
+<link rel="stylesheet" href="./assets/styles/step2.css" />
+<link rel="stylesheet" href="./assets/styles/step3.css" />
+
+<div id="container"></div>
+<div id="details"></div>
+
+<div class="controls">
+  <div class="step-control">
+    <button id="prev">◀︎</button>
+    <span id="current"></span>
+    <button id="next">▶︎</button>
+  </div>
+</div>
+
+<script type="module">
+  import { draw as draw1 } from "./assets/scripts/step1.js"
+  import { draw as draw2 } from "./assets/scripts/step2.js"
+  import { draw as draw3 } from "./assets/scripts/step3.js"
+
+  const steps = [
+    { label: "step 1", className: "step1", draw: (elem) => draw1(elem) },
+    { label: "step 2", className: "step2", draw: (elem) => draw2(elem) },
+    { label: "step 3", className: "step3", draw: (elem) => draw3(elem) },
+  ]
+
+  const change = (i) => {
+    const { label, className, draw } = steps[i]
+    document.getElementById("container").setAttribute("class", className)
+
+    document.getElementById("current").innerText = label
+    document.getElementById("prev").disabled = i === 0
+    document.getElementById("next").disabled = i === steps.length - 1
+
+    document.getElementById("container").innerHTML = ""
+    draw(document.getElementById("container"))
+  }
+
+  let index = 0
+  document.getElementById("prev").addEventListener("click", () => change(--index))
+  document.getElementById("next").addEventListener("click", () => change(++index))
+  change(index)
+</script>

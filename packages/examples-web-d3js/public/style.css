@@ -1,0 +1,48 @@
+/* style.css */
+*,
+*::before,
+*::after {
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+body {
+  width: 100vw;
+  padding: 1rem;
+  background: rgb(200 200 200 / 0.5);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-items: center;
+  margin-top: 0.5rem;
+}
+
+.controls button {
+  width: 4rem;
+  line-height: 1.5rem;
+  background-color: rgb(238 238 238);
+  border: 1px solid rgb(221 221 221);
+  border-radius: 5px;
+  box-shadow: 0 0 5px transparent;
+}
+
+.controls button:hover:not([disabled]),
+.controls button:active:not([disabled]) {
+  box-shadow: 0 0 10px rgb(240 240 20);
+}
+
+.controls > .step-control {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  background: rgb(0 0 0 / 0.1);
+  box-shadow: 0 0 5px rgb(0 0 0 / 0.2);
+}
