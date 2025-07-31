@@ -1,8 +1,8 @@
-# examples-web-css-styling
+# examples-web-styling
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-web-css-styling](#examples-web-css-styling)
+- [examples-web-styling](#examples-web-styling)
   - [References](#references)
   - [Getting Started](#getting-started)
   - [Development](#development)
@@ -31,8 +31,8 @@ pnpm run start
 This project was initialized with the following command:
 
 ```sh
-mkdir -p packages/examples-web-css-styling
-cd packages/examples-web-css-styling
+mkdir -p packages/examples-web-styling
+cd packages/examples-web-styling
 
 pnpm init
 
