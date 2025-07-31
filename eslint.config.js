@@ -17,7 +17,24 @@ export default defineConfig([
     },
   },
   tseslint.configs.recommended,
-  { files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
+  {
+    files: ["**/*.json"],
+    plugins: { json },
+    language: "json/json",
+    extends: ["json/recommended"],
+    rules: {
+      "json/no-duplicate-keys": "error",
+    },
+  },
+  {
+    files: ["**/*.jsonc", "**/*.json"],
+    plugins: { json },
+    language: "json/jsonc",
+    extends: ["json/recommended"],
+    rules: {
+      "json/no-duplicate-keys": "error",
+    },
+  },
   {
     ignores: [
       // Tricks for breaking lines.
