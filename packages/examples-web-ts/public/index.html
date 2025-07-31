@@ -1,0 +1,33 @@
+<h1>Hello Typescript</h1>
+<style type="text/css">
+  .results > * {
+    display: block;
+    margin: 1rem 0;
+  }
+</style>
+<input id="fileSelector" type="file" accept="image/png, image/jpeg" />
+<div class="results">
+  <textarea></textarea>
+  <img height="200" />
+</div>
+
+<script type="module">
+  import { AsyncFileReader } from "./dist/asserts/async_file_reader.js"
+
+  const toBase64 = (uint8Array) =>
+    btoa(uint8Array.reduce((binaryString, uint8) => binaryString + String.fromCharCode(uint8), ""))
+
+  const inputElement = document.getElementById("fileSelector")
+  inputElement.addEventListener("change", async function () {
+    const file = this.files[0]
+
+    const buffer = await new AsyncFileReader().readAsArrayBufferAsync(file)
+
+    const bytes = new Uint8Array(buffer)
+    const base64 = toBase64(bytes)
+    document.querySelector(".results textarea").value = base64
+
+    const url = await new AsyncFileReader().readAsDataURLAsync(file)
+    document.querySelector(".results img").src = url
+  })
+</script>
