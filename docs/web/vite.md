@@ -8,6 +8,7 @@ Vite is a blazing fast frontend build tool powering the next generation of web a
   - [Reference](#reference)
   - [Multi-Page App](#multi-page-app)
   - [Environment Variables](#environment-variables)
+  - [Use sass](#use-sass)
 
 ## Reference
 
@@ -144,4 +145,12 @@ HTML Constant Replacement:
 ```html
 <h1>Vite is running in %MODE%</h1>
 <p>Using data from %VITE_API_URL%</p>
+```
+
+## Use sass
+
+- [see ...](https://ja.vite.dev/config/shared-options.html#css-preprocessoroptions)
+
+```shell
+pnpm add sass-embedded -D
 ```

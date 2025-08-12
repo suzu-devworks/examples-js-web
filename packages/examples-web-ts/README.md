@@ -58,4 +58,8 @@ This project was initialized with the following command:
 ```sh
 # Generate package.json
 pnpm create vite -t vanilla-ts packages/examples-web-ts
+
+pnpm --filter examples-web-ts add glob -D
+pnpm --filter examples-web-ts add sass-embedded -D
+
 ```
