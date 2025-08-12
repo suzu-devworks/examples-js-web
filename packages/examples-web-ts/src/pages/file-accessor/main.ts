@@ -1,5 +1,6 @@
+import "@/assets/style.scss"
 import "./style.scss"
-import { AsyncFileReader } from "../../utils/async_file_reader"
+import { AsyncFileReader } from "@/utils/async_file_reader"
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <h1>File Accessor</h1>

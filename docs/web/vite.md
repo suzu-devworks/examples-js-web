@@ -9,6 +9,7 @@ Vite is a blazing fast frontend build tool powering the next generation of web a
   - [Multi-Page App](#multi-page-app)
   - [Environment Variables](#environment-variables)
   - [Use sass](#use-sass)
+  - [Use alias](#use-alias)
 
 ## Reference
 
@@ -153,4 +154,39 @@ HTML Constant Replacement:
 
 ```shell
 pnpm add sass-embedded -D
+```
+
+## Use alias
+
+- [see ...](https://ja.vite.dev/config/shared-options.html#css-preprocessoroptions)
+
+`vite.config.js`:
+
+```js
+const __dirname = import.meta.dirname
+const root = resolve(__dirname, "src")
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      "@": `${root}`,
+    },
+  },
+})
+```
+
+`tsconfig.json`:
+
+```ts
+{
+  "compilerOptions": {
+    /* use alias */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+}
 ```

@@ -1,4 +1,4 @@
-import "./assets/style.scss"
+import "@/assets/style.scss"
 
 const title = import.meta.env.VITE_APP_TITLE
 
