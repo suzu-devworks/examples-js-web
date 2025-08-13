@@ -19,8 +19,9 @@ body {
 }
 
 div:has(canvas) {
+  position: relative;
   width: 80vw;
-  padding: 1rem;
+  height: 50vh;
 }
 
 .controls {
