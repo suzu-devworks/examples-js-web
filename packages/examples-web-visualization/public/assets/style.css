@@ -18,6 +18,11 @@ body {
   background: rgb(200 200 200 / 0.5);
 }
 
+div:has(canvas) {
+  width: 80vw;
+  padding: 1rem;
+}
+
 .controls {
   display: flex;
   gap: 1rem;

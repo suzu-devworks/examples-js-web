@@ -24,6 +24,7 @@ pnpm run start
 
 ## Index
 
+- [Chart.js examples](./public/chartjs/README.md)
 - [D3.js examples](./public/d3js/README.md)
 
 ## Development
