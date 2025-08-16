@@ -3,28 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chart.js Time scale - examples-web-visualization</title>
+    <title>Chart.js Zooming Time scale - examples-web-visualization</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <h1>Time scale (Chart.js <span id="chartVersion"></span>)</h1>
+    <h1>Zooming Time scale (Chart.js <span id="chartVersion"></span>)</h1>
 
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
+      </div>
+
+      <div class="controls">
+        <div>
+          <button id="resetButton">100%</button>
+          <button id="labelToggleButton"></button>
+        </div>
+        <p>Use the wheel to zoom, and drag to zoom, Shift-drag to pan.</p>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
     <script type="module">
       // see also: https://www.chartjs.org/docs/latest/samples/scales/time-line.html
       // base from: https://www.chartjs3.com/docs/chart/getting-started
 
       const newDate = (offset) => {
         const now = new Date()
+        now.setHours(0, 0, 0, 0)
         return new Date(now.setDate(now.getDate() + offset))
       }
 
@@ -49,6 +62,9 @@
             backgroundColor: ["rgba(255, 26, 104, 0.2)"],
             borderColor: ["rgba(255, 26, 104, 1)"],
             fill: false,
+            datalabels: {
+              color: "rgba(255, 26, 104, 1)",
+            },
           },
           {
             label: "My Second dataset",
@@ -60,6 +76,9 @@
             backgroundColor: ["rgba(54, 162, 235, 0.2)"],
             borderColor: ["rgba(54, 162, 235, 1)"],
             fill: false,
+            datalabels: {
+              color: "rgba(54, 162, 235, 1)",
+            },
           },
           {
             label: "Dataset with point data",
@@ -84,6 +103,9 @@
             backgroundColor: ["rgba(75, 192, 192, 0.2)"],
             borderColor: ["rgba(75, 192, 192, 1)"],
             fill: false,
+            datalabels: {
+              color: "rgba(75, 192, 192, 1)",
+            },
           },
         ],
       }
@@ -93,10 +115,55 @@
         type: "line",
         data,
         options: {
+          interaction: {
+            mode: "nearest",
+            intersect: false,
+          },
           plugins: {
             title: {
               text: "Chart.js Time Scale",
               display: true,
+            },
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: "x",
+                modifierKey: "shift",
+              },
+              limits: {
+                // axis limits
+              },
+              zoom: {
+                wheel: {
+                  enabled: true,
+                },
+                drag: {
+                  enabled: true,
+                  backgroundColor: "rgb(255 255 255 / 0.3)",
+                },
+                pinch: {
+                  enabled: true,
+                },
+                mode: "x",
+              },
+            },
+            datalabels: {
+              align: "top",
+              clip: true,
+              formatter: (value, _context) => {
+                let val = undefined
+                if (typeof value === "number") {
+                  return round(value, 3)
+                } else if ("y" in value) {
+                  return round(value.y, 3)
+                }
+                return undefined
+
+                function round(value, digits) {
+                  const d = 10 ** digits
+                  return Math.round(value * d) / d
+                }
+              },
             },
           },
           scales: {
@@ -104,13 +171,16 @@
               type: "time",
               ticks: {
                 source: "auto",
+                autoSkip: true,
+                autoSkipPadding: 20,
                 maxRotation: 0,
               },
               time: {
                 // unit: "day",
                 tooltipFormat: "YYYY-MM-DD",
                 displayFormats: {
-                  day: "MM/DD",
+                  day: "YYYY-MM-DD",
+                  month: "YYYY-MM",
                 },
               },
               title: {
@@ -126,21 +196,25 @@
             },
           },
         },
+        plugins: [ChartDataLabels],
       }
 
       // render init block
       const myChart = new Chart(document.getElementById("myChart"), config)
 
-      myChart.canvas.addEventListener("mouseout", (e) => {
-        resetColor(myChart, e)
+      document.getElementById("resetButton").addEventListener("click", function () {
+        myChart.resetZoom()
       })
 
-      function resetColor(chart, mouseout) {
-        chart.config.data.datasets[0].borderColor[0] = borderColor[0]
-        chart.config.data.datasets[1].borderColor[0] = borderColor[1]
-        chart.config.data.datasets[2].borderColor[0] = borderColor[2]
-        chart.update()
-      }
+      document.getElementById("labelToggleButton").addEventListener("click", function () {
+        const display = myChart.options.plugins.datalabels.display ?? false
+        const next = !display
+
+        this.textContent = `datalabels: ${next ? "On" : "Off"}`
+        myChart.options.plugins.datalabels.display = next ? "auto" : false
+        myChart.update()
+      })
+      document.getElementById("labelToggleButton").click()
 
       // Instantly assign Chart.js version
       const chartVersion = document.getElementById("chartVersion")

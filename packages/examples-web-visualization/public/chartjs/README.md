@@ -9,4 +9,6 @@ Chart.js is a free, open-source JavaScript library for data visualization, which
 
 ## References
 
-- <https://www.chartjs.org/>
+- <https://www.chartjs.org/docs/latest/>
+- <https://www.chartjs.org/chartjs-plugin-zoom/latest/guide/>
+- <https://chartjs-plugin-datalabels.netlify.app/guide/#table-of-contents>
