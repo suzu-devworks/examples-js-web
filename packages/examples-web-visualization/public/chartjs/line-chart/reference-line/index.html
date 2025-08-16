@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+      import plugin from "./reference-line.js"
+
+      // setup
+      const rand = (min, max) => Math.random() * (max - min) + min
+
+      const data = {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [
+          {
+            label: "Red Sales",
+            data: [18, 12, 6, 9, 12, 3, 9],
+            upperLimit: 15,
+            lowerLimit: 2,
+            backgroundColor: `color-mix(in srgb, rgba(255, 26, 104, 1) 10%, transparent)`,
+            borderColor: ["rgba(255, 26, 104, 1)"],
+            borderWidth: 3,
+            yAxisID: "y1",
+          },
+          {
+            label: "Blue Sales",
+            data: [
+              ...Array(7)
+                .keys()
+                .map(() => rand(0.1, 2.0)),
+            ],
+            upperLimit: 1.2,
+            backgroundColor: ["rgba(54, 162, 235, 0.2)"],
+            borderColor: ["rgba(54, 162, 235, 1)"],
+            borderWidth: 3,
+            yAxisID: "y2",
+          },
+          {
+            label: "Green Sales",
+            data: [
+              ...Array(7)
+                .keys()
+                .map(() => rand(0, 200.0)),
+            ],
+            backgroundColor: ["rgba(75, 192, 192, 0.2)"],
+            borderColor: ["rgba(75, 192, 192, 1)"],
+            borderWidth: 3,
+            yAxisID: "y3",
+          },
+        ],
+      }
+
+      // config
+      const config = {
+        type: "line",
+        data,
+        options: {
+          interaction: {
+            mode: "nearest",
+            intersect: false,
+          },
+          plugins: {
+            reference_line: {
+              display: true,
+              label: {
+                align: "outside",
+              },
+            },
+          },
+          scales: {
+            y1: {
+              beginAtZero: true,
+              ticks: {
+                display: false,
+              },
+              border: {
+                display: false,
+              },
+              grid: {
+                display: false,
+              },
+            },
+            y2: {
+              beginAtZero: true,
+              ticks: {
+                display: false,
+              },
+              border: {
+                display: false,
+              },
+              grid: {
+                display: false,
+              },
+            },
+            y3: {
+              beginAtZero: true,
+              ticks: {
+                display: false,
+              },
+              border: {
+                display: false,
+              },
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
+        plugins: [plugin],
+      }
+
+      // render init block
+      const myChart = new Chart(document.getElementById("myChart"), config)
+
+      // Instantly assign Chart.js version
+      // const chartVersion = document.getElementById("chartVersion")
+      // chartVersion.innerText = Chart.version
+    </script>
+  </body>
+</html>
