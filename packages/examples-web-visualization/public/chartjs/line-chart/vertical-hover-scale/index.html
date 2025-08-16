@@ -3,12 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Getting Started with Chart JS with www.chartjs3.com</title>
-    <link rel="stylesheet" href="/assets/style.css" />
+    <title>Vertical Hover Scale - examples-web-visualization</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div>
-      <canvas id="myChart"></canvas>
+    <h1>Vertical Hover Scale (Chart.js <span id="chartVersion"></span>)</h1>
+
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -106,9 +110,9 @@
       // render init block
       const myChart = new Chart(document.getElementById("myChart"), config)
 
-      // // Instantly assign Chart.js version
-      // const chartVersion = document.getElementById("chartVersion")
-      // chartVersion.innerText = Chart.version
+      // Instantly assign Chart.js version
+      const chartVersion = document.getElementById("chartVersion")
+      chartVersion.innerText = Chart.version
     </script>
   </body>
 </html>

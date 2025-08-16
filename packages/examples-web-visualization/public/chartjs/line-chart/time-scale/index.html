@@ -3,29 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Time scale - Char.js</title>
-    <link rel="stylesheet" href="/assets/style.css" />
+    <title>Chart.js Time scale - examples-web-visualization</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <div>
-      <canvas id="myChart"></canvas>
+    <h1>Time scale (Chart.js <span id="chartVersion"></span>)</h1>
+
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
-    <script>
+    <script type="module">
       // see also: https://www.chartjs.org/docs/latest/samples/scales/time-line.html
+      // base from: https://www.chartjs3.com/docs/chart/getting-started
 
-      function newDate(offset) {
+      const newDate = (offset) => {
         const now = new Date()
         return new Date(now.setDate(now.getDate() + offset))
       }
 
-      function rand(min, max) {
-        return Math.random() * (max - min) + min
-      }
+      const rand = (min, max) => Math.random() * (max - min) + min
 
       // setup
       const num = 7
@@ -99,6 +102,10 @@
           scales: {
             x: {
               type: "time",
+              ticks: {
+                source: "auto",
+                maxRotation: 0,
+              },
               time: {
                 // unit: "day",
                 tooltipFormat: "YYYY-MM-DD",
@@ -135,9 +142,9 @@
         chart.update()
       }
 
-      // // Instantly assign Chart.js version
-      // const chartVersion = document.getElementById("chartVersion")
-      // chartVersion.innerText = Chart.version
+      // Instantly assign Chart.js version
+      const chartVersion = document.getElementById("chartVersion")
+      chartVersion.innerText = Chart.version
     </script>
   </body>
 </html>

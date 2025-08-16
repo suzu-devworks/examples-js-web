@@ -90,6 +90,7 @@ export default {
   defaults: {
     display: true,
     label: {
+      display: true,
       align: "inside",
     },
   },
@@ -126,20 +127,25 @@ export default {
           const dy = axis.getPixelForValue(upperLimit)
           const borderColor = toColor(dataset.borderColor)
           drawReferenceLine(ctx, dx, dy, dw, { borderColor })
-          drawText(ctx, `[${upperLimit}]`, dx, dy, {
-            textColor: borderColor,
-            textAlign: options.label.align,
-          })
+
+          if (options.label.display) {
+            drawText(ctx, `[${upperLimit.toLocaleString()}]`, dx, dy, {
+              textColor: borderColor,
+              textAlign: options.label.align,
+            })
+          }
         }
 
         if (lowerLimit) {
           const dy = axis.getPixelForValue(lowerLimit)
           const borderColor = toColor(dataset.borderColor)
           drawReferenceLine(ctx, dx, dy, dw, { borderColor })
-          drawText(ctx, `[${lowerLimit}]`, dx, dy, {
-            textColor: borderColor,
-            textAlign: options.label.align,
-          })
+          if (options.label.display) {
+            drawText(ctx, `[${lowerLimit.toLocaleString()}]`, dx, dy, {
+              textColor: borderColor,
+              textAlign: options.label.align,
+            })
+          }
         }
       }
     })
