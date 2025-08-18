@@ -1,0 +1,28 @@
+/* step 2 */
+.step2 svg {
+  font-family: serif;
+  box-shadow: 1px 1px 5px 2px rgb(0 0 0 / 0.2);
+}
+
+.step2 rect {
+  width: 80px;
+  height: 40px;
+  fill: white;
+  stroke: silver;
+  stroke-width: 2;
+}
+
+.step2 path {
+  fill: none;
+  stroke: silver;
+  stroke-width: 2;
+}
+
+.step2 text {
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.step2 .bigger {
+  font-size: 20px;
+}

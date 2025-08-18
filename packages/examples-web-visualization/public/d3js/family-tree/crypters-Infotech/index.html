@@ -1,0 +1,47 @@
+<!doctype html>
+<title>D3.js Family Tree - examples-web-visualization</title>
+<link rel="stylesheet" href="/assets/style.css" />
+<link rel="stylesheet" href="./assets/step1/style.css" />
+<link rel="stylesheet" href="./assets/step2/style.css" />
+<link rel="stylesheet" href="./assets/step3/style.css" />
+
+<h1>Family Tree (D3.js)</h1>
+<div id="container"></div>
+<div id="details"></div>
+
+<div class="control-panel">
+  <div class="step-control">
+    <button id="prev">◀︎</button>
+    <span id="current"></span>
+    <button id="next">▶︎</button>
+  </div>
+</div>
+
+<script type="module">
+  import { draw as draw1 } from "./assets/step1/app.js"
+  import { draw as draw2 } from "./assets/step2/app.js"
+  import { draw as draw3 } from "./assets/step3/app.js"
+
+  const steps = [
+    { label: "step 1", className: "step1", draw: (elem) => draw1(elem) },
+    { label: "step 2", className: "step2", draw: (elem) => draw2(elem) },
+    { label: "step 3", className: "step3", draw: (elem) => draw3(elem) },
+  ]
+
+  const change = (i) => {
+    const { label, className, draw } = steps[i]
+    document.querySelector("body").setAttribute("class", className)
+
+    document.getElementById("current").innerText = label
+    document.getElementById("prev").disabled = i === 0
+    document.getElementById("next").disabled = i === steps.length - 1
+
+    document.getElementById("container").innerHTML = ""
+    draw(document.getElementById("container"))
+  }
+
+  let index = 0
+  document.getElementById("prev").addEventListener("click", () => change(--index))
+  document.getElementById("next").addEventListener("click", () => change(++index))
+  change(index)
+</script>
