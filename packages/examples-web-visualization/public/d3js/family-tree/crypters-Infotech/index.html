@@ -1,9 +1,9 @@
 <!doctype html>
 <title>D3.js Family Tree - examples-web-visualization</title>
 <link rel="stylesheet" href="/assets/style.css" />
-<link rel="stylesheet" href="./assets/styles/step1.css" />
-<link rel="stylesheet" href="./assets/styles/step2.css" />
-<link rel="stylesheet" href="./assets/styles/step3.css" />
+<link rel="stylesheet" href="./assets/step1/style.css" />
+<link rel="stylesheet" href="./assets/step2/style.css" />
+<link rel="stylesheet" href="./assets/step3/style.css" />
 
 <h1>Family Tree (D3.js)</h1>
 <div id="container"></div>
@@ -18,9 +18,9 @@
 </div>
 
 <script type="module">
-  import { draw as draw1 } from "./assets/scripts/step1.js"
-  import { draw as draw2 } from "./assets/scripts/step2.js"
-  import { draw as draw3 } from "./assets/scripts/step3.js"
+  import { draw as draw1 } from "./assets/step1/app.js"
+  import { draw as draw2 } from "./assets/step2/app.js"
+  import { draw as draw3 } from "./assets/step3/app.js"
 
   const steps = [
     { label: "step 1", className: "step1", draw: (elem) => draw1(elem) },
