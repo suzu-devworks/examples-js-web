@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chart.js Zooming Time scale - examples-web-visualization</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
   </head>
 
   <body>
@@ -14,14 +14,14 @@
       <div class="chartBox">
         <canvas id="myChart"></canvas>
       </div>
+    </div>
 
-      <div class="controls">
-        <div>
-          <button id="resetButton">100%</button>
-          <button id="labelToggleButton"></button>
-        </div>
-        <p>Use the wheel to zoom, and drag to zoom, Shift-drag to pan.</p>
+    <div class="control-panel">
+      <div>
+        <button id="resetButton">100%</button>
+        <button id="labelToggleButton"></button>
       </div>
+      <p class="explanation">Use the wheel to zoom, and drag to zoom, Shift-drag to pan.</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -139,7 +139,7 @@
                 },
                 drag: {
                   enabled: true,
-                  backgroundColor: "rgb(255 255 255 / 0.3)",
+                  backgroundColor: "rgb(200 200 200 / 0.4)",
                 },
                 pinch: {
                   enabled: true,

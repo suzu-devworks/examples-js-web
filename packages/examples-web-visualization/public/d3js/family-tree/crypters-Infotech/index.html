@@ -1,14 +1,15 @@
 <!doctype html>
-<title>Family Tree - D3.js</title>
+<title>D3.js Family Tree - examples-web-visualization</title>
 <link rel="stylesheet" href="/assets/style.css" />
 <link rel="stylesheet" href="./assets/styles/step1.css" />
 <link rel="stylesheet" href="./assets/styles/step2.css" />
 <link rel="stylesheet" href="./assets/styles/step3.css" />
 
+<h1>Family Tree (D3.js)</h1>
 <div id="container"></div>
 <div id="details"></div>
 
-<div class="controls">
+<div class="control-panel">
   <div class="step-control">
     <button id="prev">◀︎</button>
     <span id="current"></span>
@@ -29,7 +30,7 @@
 
   const change = (i) => {
     const { label, className, draw } = steps[i]
-    document.getElementById("container").setAttribute("class", className)
+    document.querySelector("body").setAttribute("class", className)
 
     document.getElementById("current").innerText = label
     document.getElementById("prev").disabled = i === 0

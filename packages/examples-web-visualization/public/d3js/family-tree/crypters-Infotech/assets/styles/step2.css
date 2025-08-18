@@ -1,10 +1,10 @@
 /* step 2 */
-svg {
+.step2 svg {
   font-family: serif;
   box-shadow: 1px 1px 5px 2px rgb(0 0 0 / 0.2);
 }
 
-rect {
+.step2 rect {
   width: 80px;
   height: 40px;
   fill: white;
@@ -12,17 +12,17 @@ rect {
   stroke-width: 2;
 }
 
-path {
+.step2 path {
   fill: none;
   stroke: silver;
   stroke-width: 2;
 }
 
-text {
+.step2 text {
   dominant-baseline: middle;
   text-anchor: middle;
 }
 
-.bigger {
+.step2 .bigger {
   font-size: 20px;
 }

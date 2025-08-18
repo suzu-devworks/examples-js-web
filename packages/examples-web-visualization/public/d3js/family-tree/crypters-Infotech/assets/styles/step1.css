@@ -1,10 +1,10 @@
 /* step 1 */
-svg {
+.step1 svg {
   font-family: serif;
   box-shadow: 1px 1px 5px 2px rgb(0 0 0 / 0.2);
 }
 
-circle {
+.step1 circle {
   fill: blue;
 }
 
