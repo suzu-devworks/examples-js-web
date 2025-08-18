@@ -1,0 +1,9 @@
+{
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": ["Avenir", "chartjs", "Crypters", "datalabels", "Infotech", "Metas", "textareas", "Udemy"],
+  "ignoreWords": [],
+  "import": ["../../.vscode/cspell.json"]
+}

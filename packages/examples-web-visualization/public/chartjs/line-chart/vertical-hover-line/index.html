@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vertical Hover Line - examples-web-visualization</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <h1>Vertical Hover Line (Chart.js <span id="chartVersion"></span>)</h1>
+
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./vertical-hover-line.js"></script>
+
+    <script type="module">
+      // base from: https://www.chartjs3.com/docs/chart/getting-started/
+
+      const rand = (min, max) => Math.random() * (max - min) + min
+
+      // setup
+      const data = {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [
+          {
+            label: "Red Sales",
+            data: [
+              ...Array(7)
+                .keys()
+                .map(() => rand(0, 20)),
+            ],
+            backgroundColor: ["rgba(255, 26, 104, 0.2)"],
+            borderColor: ["rgba(255, 26, 104, 1)"],
+            pointHoverBackgroundColor: ["rgba(255, 26, 104, 1)"],
+            borderWidth: 1,
+          },
+          {
+            label: "Black Sales",
+            data: [
+              ...Array(7)
+                .keys()
+                .map(() => rand(0, 20)),
+            ],
+            backgroundColor: ["rgba(0, 0, 0, 0.2)"],
+            borderColor: ["rgba(0, 0, 0, 1)"],
+            pointHoverBackgroundColor: ["rgba(0, 0, 0, 1)"],
+            borderWidth: 1,
+          },
+        ],
+      }
+
+      // config
+      const config = {
+        type: "line",
+        data,
+        options: {
+          interaction: {
+            mode: "index",
+            intersect: false,
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+        plugins: [VerticalHoverLine],
+      }
+
+      // render init block
+      const myChart = new Chart(document.getElementById("myChart"), config)
+
+      // Instantly assign Chart.js version
+      const chartVersion = document.getElementById("chartVersion")
+      chartVersion.innerText = Chart.version
+    </script>
+  </body>
+</html>

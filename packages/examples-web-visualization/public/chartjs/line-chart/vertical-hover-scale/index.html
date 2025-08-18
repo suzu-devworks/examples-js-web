@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vertical Hover Scale - examples-web-visualization</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <h1>Vertical Hover Scale (Chart.js <span id="chartVersion"></span>)</h1>
+
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      // base from: https://www.chartjs3.com/docs/chart/getting-started/
+
+      // setup
+      const data = {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [
+          {
+            label: "Red Sales",
+            data: [18, 12, 6, 9, 12, 3, 9],
+            backgroundColor: ["rgba(255, 26, 104, 0.2)"],
+            borderColor: ["rgba(255, 26, 104, 1)"],
+            borderWidth: 1,
+          },
+          {
+            label: "Blue Sales",
+            data: [0.18, 0.12, 0.6, 0.9, 0.12, 0.3, 0.9],
+            backgroundColor: ["rgba(54, 162, 235, 0.2)"],
+            borderColor: ["rgba(54, 162, 235, 1)"],
+            borderWidth: 1,
+            yAxisID: "y1",
+          },
+          {
+            label: "Green Sales",
+            data: [1800, 1200, NaN, 900, 1200, 300, 900],
+            backgroundColor: ["rgba(75, 192, 192, 0.2)"],
+            borderColor: ["rgba(75, 192, 192, 1)"],
+            borderWidth: 1,
+            yAxisID: "y2",
+            spanGaps: true,
+          },
+        ],
+      }
+
+      // config
+      const config = {
+        type: "line",
+        data,
+        options: {
+          interaction: {
+            mode: "nearest",
+            intersect: false,
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              display: true,
+              position: "left",
+            },
+            y1: {
+              type: "linear",
+              display: "auto",
+              position: "right",
+
+              grid: {
+                drawOnChartArea: false,
+              },
+            },
+            y2: {
+              type: "linear",
+              display: "auto",
+              position: "right",
+              grid: {
+                drawOnChartArea: false,
+              },
+            },
+          },
+          onHover: (event, activeElements, chart) => {
+            const datasets = chart.config.data.datasets
+            if (activeElements[0]) {
+              // console.log(activeElements[0], datasets[ctx.datasetIndex])
+              const ctx = activeElements[0].element.$context
+
+              Object.values(config.options.scales)
+                .filter((x) => x.axis == "y")
+                .forEach((scale) => (scale.display = false))
+
+              const yAxisID = datasets[ctx.datasetIndex].yAxisID || "y"
+              if (yAxisID in config.options.scales) {
+                const scale = config.options.scales[yAxisID]
+                scale.display = true
+                scale.grid.drawOnChartArea = true
+                scale.position = "left"
+              }
+            }
+            chart.update()
+          },
+        },
+      }
+
+      // render init block
+      const myChart = new Chart(document.getElementById("myChart"), config)
+
+      // Instantly assign Chart.js version
+      const chartVersion = document.getElementById("chartVersion")
+      chartVersion.innerText = Chart.version
+    </script>
+  </body>
+</html>
