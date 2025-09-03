@@ -63,6 +63,10 @@
       }
 
       const handleError = (error) => {
+        const ignored = (error) => {
+          return /(No barcode|No MultiFormat Readers)/.test(error)
+        }
+
         if (ignored(error)) {
           return
         }
@@ -74,10 +78,6 @@
         message.innerText = error
 
         document.getElementById("messages").appendChild(message)
-
-        function ignored(error) {
-          return /(No barcode|No MultiFormat Readers)/.test(error)
-        }
       }
 
       const enumerateCamera = (callback /* : (deviceId: string) => void */) => {
@@ -92,7 +92,7 @@
              * { id: "id", label: "label" }
              */
             if (devices && devices.length) {
-              var cameraId = devices[0].id
+              const cameraId = devices[0].id
               // .. use this to start scanning.
 
               devices.map((device) => createListNode(device)).forEach((element) => list.appendChild(element))
@@ -216,7 +216,7 @@
         }
 
         if (!navigator.clipboard) {
-          handleError("clipboard API not work.")
+          handleError("Clipboard API is not available.")
           return
         }
 

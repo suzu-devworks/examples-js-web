@@ -46,12 +46,12 @@
         // handle scan failure, usually better to ignore and keep scanning.
         // for example:
 
-        if (!ignored(error)) {
-          console.warn(`Code scan error = ${error}`)
+        const ignored = (error) => {
+          return /(No barcode|No MultiFormat Readers)/.test(error)
         }
 
-        function ignored(error) {
-          return /(No barcode|No MultiFormat Readers)/.test(error)
+        if (!ignored(error)) {
+          console.warn(`Code scan error = ${error}`)
         }
       }
 
@@ -70,7 +70,7 @@
         }
 
         if (!navigator.clipboard) {
-          console.warn("clipboard API not work.")
+          console.warn("Clipboard API is not available.")
           return
         }
 
