@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html5-qrcode Easy Mode - examples-web-visualization</title>
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <style>
+      #reader {
+        width: 600px;
+      }
+
+      .scanned-content {
+        margin: 0.5rem 0;
+
+        > input[type="text"] {
+          width: 520px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Easy Mode (html5-qrcode <span id="version"></span>)</h1>
+
+    <div id="reader"></div>
+
+    <div class="scanned-content">
+      <input id="decoded-output" type="text" value="" readonly />
+      <button id="copy-to-clipboard" aria-label="copy to clipboard">content_copy</button>
+    </div>
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script type="module">
+      import "../../assets/localhost-switcher.js"
+
+      const decodedOutput = document.getElementById("decoded-output")
+
+      function onScanSuccess(decodedText, decodedResult) {
+        // handle the scanned code as you like, for example:
+        console.log(`Code matched = ${decodedText}`, decodedResult)
+        decodedOutput.value = decodedText
+      }
+
+      function onScanFailure(error) {
+        // handle scan failure, usually better to ignore and keep scanning.
+        // for example:
+
+        if (!ignored(error)) {
+          console.warn(`Code scan error = ${error}`)
+        }
+
+        function ignored(error) {
+          return /(No barcode|No MultiFormat Readers)/.test(error)
+        }
+      }
+
+      const html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader",
+        { fps: 10, qrbox: { width: 250, height: 250 } },
+        // spell-checker: words qrbox
+        /* verbose= */ false
+      )
+      html5QrcodeScanner.render(onScanSuccess, onScanFailure)
+
+      document.getElementById("copy-to-clipboard").addEventListener("click", function () {
+        const decoded = decodedOutput.value
+        if (!decoded) {
+          return
+        }
+
+        if (!navigator.clipboard) {
+          console.warn("clipboard API not work.")
+          return
+        }
+
+        navigator.clipboard.writeText(decoded)
+        console.log(decoded, "copied!")
+
+        this.dataset.copied = true
+        setTimeout(() => (this.dataset.copied = undefined), 3000)
+      })
+    </script>
+  </body>
+</html>
