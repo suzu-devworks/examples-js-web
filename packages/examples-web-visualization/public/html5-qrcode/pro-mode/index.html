@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html5-qrcode Pro Mode - examples-web-visualization</title>
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <style>
+      #reader {
+        width: 600px;
+      }
+
+      .container {
+        margin: 0.5rem 0;
+
+        input[type="text"] {
+          width: 520px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Pro Mode (html5-qrcode <span id="version"></span>)</h1>
+
+    <div class="panel">
+      <button id="fetch-camera">Fetch camera</button>
+      <button id="stop-scan" disabled>Stop</button>
+      <input type="file" id="select-file" accept="image/*" />
+    </div>
+
+    <div id="reader"></div>
+
+    <div class="container">
+      <div>
+        <input id="decoded-output" readonly type="text" value="" />
+        <button id="copy-to-clipboard" aria-label="copy to clipboard">content_copy</button>
+      </div>
+
+      <div>
+        <h3>Detected Camera:</h3>
+        <ul id="camera-list"></ul>
+      </div>
+
+      <div>
+        <h3>Use facingMode:</h3>
+        <ul id="facing-mode-list"></ul>
+      </div>
+
+      <div id="messages"></div>
+    </div>
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script type="module">
+      import "../../assets/localhost-switcher.js"
+
+      const html5QrCode = new Html5Qrcode(/* element id */ "reader")
+
+      const config = {
+        fps: 10, // Optional, frame per seconds for qr code scanning
+        qrbox: { width: 250, height: 250 }, // Optional, if you want bounded box UI
+        // spell-checker: words qrbox
+        // formatsToSupport: [
+        //   // 1D codes
+        //   Html5QrcodeSupportedFormats.CODE_39,
+        //   Html5QrcodeSupportedFormats.CODE_93,
+        //   Html5QrcodeSupportedFormats.CODE_128,
+        //   Html5QrcodeSupportedFormats.EAN_13,
+        //   Html5QrcodeSupportedFormats.EAN_8,
+        //   Html5QrcodeSupportedFormats.UPC_A,
+        //   Html5QrcodeSupportedFormats.UPC_E,
+        //   Html5QrcodeSupportedFormats.ITF,
+        //   // 2D codes
+        //   Html5QrcodeSupportedFormats.QR_CODE,
+        //   Html5QrcodeSupportedFormats.DATA_MATRIX,
+        //   Html5QrcodeSupportedFormats.AZTEC,
+        //   Html5QrcodeSupportedFormats.PDF_417,
+        // ],
+      }
+
+      const handleError = (error) => {
+        const ignored = (error) => {
+          return /(No barcode|No MultiFormat Readers)/.test(error)
+        }
+
+        if (ignored(error)) {
+          return
+        }
+
+        console.error(error)
+
+        const message = document.createElement("div")
+        message.className = "error-message"
+        message.innerText = error
+
+        document.getElementById("messages").appendChild(message)
+      }
+
+      const enumerateCamera = (callback /* : (deviceId: string) => void */) => {
+        const list = document.getElementById("camera-list")
+        list.innerHTML = ""
+
+        // This method will trigger user permissions
+        Html5Qrcode.getCameras()
+          .then((devices) => {
+            /**
+             * devices would be an array of objects of type:
+             * { id: "id", label: "label" }
+             */
+            if (devices && devices.length) {
+              const cameraId = devices[0].id
+              // .. use this to start scanning.
+
+              devices.map((device) => createListNode(device)).forEach((element) => list.appendChild(element))
+            }
+          })
+          .catch((err) => {
+            // handle err
+            handleError(err)
+          })
+
+        function createListNode(device /*: { id: "id", label: "label" } */) {
+          const a = document.createElement("a")
+          a.innerHTML = `${device.label}`
+          a.href = `#${device.id}`
+          a.addEventListener("click", () => callback(device.id))
+
+          const li = document.createElement("li")
+          li.appendChild(a)
+
+          return li
+        }
+      }
+
+      const startCamera = (
+        cameraIdOrConfig /* : string | { facingMode: string | { exact: string } } */,
+        qrCodeSuccessCallback /* : (decodedText, decodedResult) => void */
+      ) => {
+        html5QrCode
+          .start(cameraIdOrConfig, config, qrCodeSuccessCallback, (errorMessage) => {
+            // parse error, ignore it.
+            handleError(errorMessage)
+          })
+          .catch((err) => {
+            // Start failed, handle it.
+            handleError(err)
+          })
+      }
+
+      const stopCamera = () => {
+        if (html5QrCode.getState() === Html5QrcodeScannerState.SCANNING) {
+          html5QrCode
+            .stop()
+            .then((ignore) => {
+              // QR Code scanning is stopped.
+            })
+            .catch((err) => {
+              // Stop failed, handle it.
+              handleError(err)
+            })
+        }
+      }
+
+      const enumerateFacingMode = (callback /* : (cameraId: { facingMode: string | { exact: string } }) => void */) => {
+        const list = document.getElementById("facing-mode-list")
+        list.innerHTML = ""
+
+        const modes = [
+          // If you want to prefer front camera
+          { label: "user", config: { facingMode: "user" } },
+          // If you want to prefer back camera
+          { label: "environment", config: { facingMode: "environment" } },
+          // Select front camera or fail with `OverconstrainedError`.
+          { label: "exact user", config: { facingMode: { exact: "user" } } },
+          // Select back camera or fail with `OverconstrainedError`.
+          { label: "exact environment", config: { facingMode: { exact: "environment" } } },
+        ]
+
+        modes.map((mode) => createListNode(mode)).forEach((element) => list.appendChild(element))
+
+        function createListNode(mode /*: { label: string, config : { facingMode: string | { exact: string } } } */) {
+          const a = document.createElement("a")
+          a.innerHTML = `${mode.label}`
+          a.href = `#${encodeURI(mode.label)}`
+          a.addEventListener("click", () => callback(mode.config))
+
+          const li = document.createElement("li")
+          li.appendChild(a)
+
+          return li
+        }
+      }
+
+      const fetchButton = document.getElementById("fetch-camera")
+      const stopButton = document.getElementById("stop-scan")
+
+      const decodedOutput = document.getElementById("decoded-output")
+
+      enumerateFacingMode((config) => {
+        startCamera(config, (decodedText, decodedResult) => {
+          // handle success callback
+          console.log(`Code matched = ${decodedText}`, decodedResult, config)
+          decodedOutput.value = decodedText
+        })
+        stopButton.disabled = false
+      })
+
+      fetchButton.addEventListener("click", () => {
+        enumerateCamera((cameraId) => {
+          decodedOutput.value = ""
+          startCamera(cameraId, (decodedText, decodedResult) => {
+            // handle success callback
+            console.log(`Code matched = ${decodedText}`, decodedResult, cameraId)
+            decodedOutput.value = decodedText
+          })
+          stopButton.disabled = false
+        })
+      })
+
+      stopButton.addEventListener("click", () => {
+        stopCamera()
+        stopButton.disabled = true
+      })
+
+      window.addEventListener("beforeunload", () => {
+        stopCamera()
+      })
+
+      document.getElementById("select-file").addEventListener("change", (event) => {
+        if (event.target.files.length === 0) {
+          // No file selected, ignore
+          return
+        }
+
+        decodedOutput.value = ""
+        const imageFile = event.target.files[0]
+
+        html5QrCode
+          .scanFile(imageFile, /* showImage */ true)
+          .then((decodedText) => {
+            // handle success callback
+            console.log(`Code matched = ${decodedText}`)
+            decodedOutput.value = decodedText
+          })
+          .catch((err) => {
+            // failure, handle it.
+            handleError(err)
+          })
+      })
+
+      document.getElementById("copy-to-clipboard").addEventListener("click", function () {
+        const decoded = decodedOutput.value
+        if (!decoded) {
+          return
+        }
+
+        if (!navigator.clipboard) {
+          handleError("Clipboard API is not available.")
+          return
+        }
+
+        navigator.clipboard.writeText(decoded)
+        console.log(decoded, "copied!")
+
+        this.dataset.copied = true
+        setTimeout(() => (this.dataset.copied = undefined), 3000)
+      })
+    </script>
+  </body>
+</html>

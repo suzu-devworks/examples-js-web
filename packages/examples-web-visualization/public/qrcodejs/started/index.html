@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QRCode.js Basic Usages - examples-web-visualization</title>
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <style>
+      #qrdata {
+        width: 80vw;
+      }
+
+      #qrcode {
+        width: 160px;
+        height: 160px;
+      }
+
+      div:has(#qrcode) {
+        padding: 0 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Basic Usages (QRCode.js <span id="version"></span>)</h1>
+
+    <div class="panel">
+      <input id="qrdata" type="text" value="" placeholder="QRCode data" />
+    </div>
+
+    <div>
+      <div id="qrcode"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script type="module">
+      // spell-checker: words qrdata
+      var qrcode = new QRCode(document.getElementById("qrcode"))
+      const qrdata = document.getElementById("qrdata")
+
+      const makeCode = () => {
+        if (!qrdata.value) {
+          return
+        }
+        qrcode.makeCode(qrdata.value)
+      }
+      makeCode()
+
+      qrdata.addEventListener("blur", () => makeCode())
+      qrdata.addEventListener("keydown", (event) => {
+        if (event.keycode === 13) {
+          makeCode()
+        }
+      })
+    </script>
+  </body>
+</html>
