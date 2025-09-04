@@ -27,6 +27,7 @@
     <div class="panel">
       <button id="fetch-camera">Fetch camera</button>
       <button id="stop-scan" disabled>Stop</button>
+      <input type="file" id="select-file" accept="image/*" />
     </div>
 
     <div id="reader"></div>
@@ -60,6 +61,22 @@
         fps: 10, // Optional, frame per seconds for qr code scanning
         qrbox: { width: 250, height: 250 }, // Optional, if you want bounded box UI
         // spell-checker: words qrbox
+        // formatsToSupport: [
+        //   // 1D codes
+        //   Html5QrcodeSupportedFormats.CODE_39,
+        //   Html5QrcodeSupportedFormats.CODE_93,
+        //   Html5QrcodeSupportedFormats.CODE_128,
+        //   Html5QrcodeSupportedFormats.EAN_13,
+        //   Html5QrcodeSupportedFormats.EAN_8,
+        //   Html5QrcodeSupportedFormats.UPC_A,
+        //   Html5QrcodeSupportedFormats.UPC_E,
+        //   Html5QrcodeSupportedFormats.ITF,
+        //   // 2D codes
+        //   Html5QrcodeSupportedFormats.QR_CODE,
+        //   Html5QrcodeSupportedFormats.DATA_MATRIX,
+        //   Html5QrcodeSupportedFormats.AZTEC,
+        //   Html5QrcodeSupportedFormats.PDF_417,
+        // ],
       }
 
       const handleError = (error) => {
@@ -191,6 +208,7 @@
 
       fetchButton.addEventListener("click", () => {
         enumerateCamera((cameraId) => {
+          decodedOutput.value = ""
           startCamera(cameraId, (decodedText, decodedResult) => {
             // handle success callback
             console.log(`Code matched = ${decodedText}`, decodedResult, cameraId)
@@ -207,6 +225,28 @@
 
       window.addEventListener("beforeunload", () => {
         stopCamera()
+      })
+
+      document.getElementById("select-file").addEventListener("change", (event) => {
+        if (event.target.files.length === 0) {
+          // No file selected, ignore
+          return
+        }
+
+        decodedOutput.value = ""
+        const imageFile = event.target.files[0]
+
+        html5QrCode
+          .scanFile(imageFile, /* showImage */ true)
+          .then((decodedText) => {
+            // handle success callback
+            console.log(`Code matched = ${decodedText}`)
+            decodedOutput.value = decodedText
+          })
+          .catch((err) => {
+            // failure, handle it.
+            handleError(err)
+          })
       })
 
       document.getElementById("copy-to-clipboard").addEventListener("click", function () {
