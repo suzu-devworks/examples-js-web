@@ -11,4 +11,4 @@ OPTION='-avr'
 
 # static projects
 rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-pwa-camera/ ${DIST}/examples-pwa-camera/
-rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-web-visualization/public ${DIST}/examples-web-visualization/
+rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-web-visualization/public/ ${DIST}/examples-web-visualization/
