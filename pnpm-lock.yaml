@@ -85,12 +85,6 @@ importers:
         specifier: ^14.1.1
         version: 14.1.1
 
-  packages/examples-web-chartjs:
-    dependencies:
-      http-server:
-        specifier: ^14.1.1
-        version: 14.1.1
-
   packages/examples-web-styling:
     dependencies:
       http-server:
