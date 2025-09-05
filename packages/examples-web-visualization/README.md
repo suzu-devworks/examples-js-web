@@ -26,6 +26,8 @@ pnpm run start
 
 - [Chart.js examples](./public/chartjs/README.md)
 - [D3.js examples](./public/d3js/README.md)
+- [QRCode.js examples](./public/qrcodejs/README.md)
+- [Html5-QRCode examples](./public/html5-qrcode/README.md)
 
 ## Development
 

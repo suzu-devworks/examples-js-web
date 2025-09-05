@@ -15,6 +15,7 @@ However, please note that the code discussed here is based on my personal opinio
 Start the Github Page
 
 - [examples-pwa-camera](https://suzu-devworks.github.io/examples-js-web/examples-pwa-camera/)
+- [examples-web-visualization](https://suzu-devworks.github.io/examples-js-web/examples-web-visualization/)
 
 ## More documents
 
