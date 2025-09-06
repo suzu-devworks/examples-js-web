@@ -3,7 +3,7 @@
 SOURCE='../packages'
 DIST=`pwd`
 
-EXCLUDE={'file1.txt','dir1/*','dir2'}
+EXCLUDE={'*.md','file1.txt','dir1/*','dir2'}
 OPTION='-avr'
 
 # root static
@@ -11,3 +11,4 @@ OPTION='-avr'
 
 # static projects
 rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-pwa-camera/ ${DIST}/examples-pwa-camera/
+rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-web-visualization/public/ ${DIST}/examples-web-visualization/

@@ -5,16 +5,5 @@
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "mounts": ["source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"],
   "postCreateCommand": "sudo chown node node_modules",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "DavidAnson.vscode-markdownlint",
-        "stylelint.vscode-stylelint"
-      ]
-    }
-  },
   "remoteUser": "node"
 }
