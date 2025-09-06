@@ -1,5 +1,5 @@
 {
-  "name": "examples-web-ts",
+  "name": "examples-web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,8 @@
   },
   "devDependencies": {
     "glob": "^11.0.3",
-    "sass-embedded": "^1.90.0",
-    "typescript": "~5.8.3",
-    "vite": "^7.1.2"
+    "sass-embedded": "^1.92.1",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.4"
   }
 }

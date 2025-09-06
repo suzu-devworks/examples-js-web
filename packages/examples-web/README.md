@@ -1,8 +1,8 @@
-# examples-web-ts
+# examples-web
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-web-ts](#examples-web-ts)
+- [examples-web](#examples-web)
   - [References](#references)
   - [Getting Started](#getting-started)
     - [Setup](#setup)
@@ -57,7 +57,7 @@ This project was initialized with the following command:
 
 ```sh
 # Generate package.json
-pnpm create vite -t vanilla-ts packages/examples-web-ts
+pnpm create vite -t vanilla-ts packages/examples-web
 
 pnpm --filter examples-web-ts add glob -D
 pnpm --filter examples-web-ts add sass-embedded -D
