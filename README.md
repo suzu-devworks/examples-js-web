@@ -1,6 +1,7 @@
 # examples-js-web
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![CodeQL](https://github.com/suzu-devworks/examples-js-web/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/suzu-devworks/examples-js-web/actions/workflows/github-code-scanning/codeql)
 
 ## What is the purpose of this repository?
 
