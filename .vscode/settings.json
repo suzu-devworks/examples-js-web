@@ -43,6 +43,7 @@
       "allowed_elements": ["br"]
     }
   },
+  "stylelint.validate": ["css", "scss"],
   "typescript.format.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib"
 }
