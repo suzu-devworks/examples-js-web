@@ -155,7 +155,7 @@ input[type="file"] {
   text-indent: 100%;
   white-space: nowrap;
   outline: 0 none;
-  background: url("../../../assets/icons/content_copy.svg") center/80% no-repeat;
+  background: url("icons/content_copy.svg") center/80% no-repeat;
   background-color: rgb(120 120 120 / 0.7);
   border: 1px solid var(--my-button-border-color);
 
