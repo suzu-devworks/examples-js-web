@@ -50,15 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 
   const frequencyControl = document.querySelector<HTMLInputElement>("#beep-frequency")
-  frequencyControl?.addEventListener("input", function () {
+  frequencyControl!.addEventListener("input", function () {
     const output = this.nextElementSibling
     if (output) {
       output.textContent = `${this.value}Hz`
     }
   })
 
-  playButton?.addEventListener("click", async function () {
-    console.log("debug", volumeControl?.value)
+  playButton!.addEventListener("click", async function () {
     playBeepSound({
       gain: volumeControl?.value ? parseFloat(volumeControl.value) : undefined,
       frequency: frequencyControl?.value ? parseFloat(frequencyControl.value) : undefined,
