@@ -6,8 +6,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <h1>${title}</h1>
   <nav>
     <ul>
-      <li><a href="pages/counters/">Counters (from create-vite's template)</a></li>
-      <li><a href="pages/file-accessor/">File Accessor</a></li>
+      <li><a href="pages/counters/">Counter (from create-vite's template)</a></li>
+      <li><a href="pages/files/">File API</a></li>
+      <li><a href="pages/web-audio/">Web Audio API</a></li>
     </ul>
   </nav>
 `

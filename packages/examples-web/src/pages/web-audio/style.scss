@@ -1,0 +1,51 @@
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  .control {
+    position: relative;
+    padding: 0.62rem 0;
+
+    > label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 0.62rem;
+      font-weight: bold;
+    }
+
+    input[type="range"] + output {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 0.62rem;
+    }
+  }
+}
+
+.before-icon-button {
+  position: relative;
+  padding-left: 18px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: "";
+    transform: translateY(-50%);
+  }
+}
+
+.sound-sampler-button::before {
+  background: rgb(0 0 220);
+  mask: url("/icons/sound_sampler.svg") 0 0 / contain;
+}
+
+.replay-button::before {
+  background: rgb(70 70 70);
+  mask: url("/icons/replay.svg") 0 0 / contain;
+}
