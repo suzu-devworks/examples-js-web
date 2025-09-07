@@ -40,12 +40,43 @@
   }
 }
 
-.sound-sampler-button::before {
-  background: rgb(0 0 220);
-  mask: url("/icons/sound_sampler.svg") 0 0 / contain;
+.sound-sampler-button {
+  &::before {
+    background-color: rgb(0 0 220);
+    mask: url("/icons/sound_sampler.svg") 0 0 / contain;
+  }
+
+  &:disabled::before {
+    opacity: 0.4;
+  }
 }
 
-.replay-button::before {
-  background: rgb(70 70 70);
-  mask: url("/icons/replay.svg") 0 0 / contain;
+.replay-button {
+  &::before {
+    background-color: rgb(70 70 70);
+    mask: url("/icons/replay.svg") 0 0 / contain;
+  }
+
+  &:disabled::before {
+    opacity: 0.4;
+  }
+}
+
+.mute-button {
+  &::before {
+    background-color: rgb(70 70 70);
+    mask: url("/icons/mic.svg") 0 0 / contain;
+  }
+
+  &[data-mute="true"] {
+    background-color: rgb(220 100 100);
+  }
+
+  &[data-mute="true"]::before {
+    mask: url("/icons/mic_off.svg") 0 0 / contain;
+  }
+
+  &:disabled::before {
+    opacity: 0.4;
+  }
 }

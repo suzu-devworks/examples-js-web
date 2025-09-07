@@ -8,25 +8,23 @@ export const content = `
       that utilizes the MediaElementAudioSourceNode.</p>
     <section>
       <input id="audio-file-selector" type="file" accept="audio/*" />
-    </section>
-    <section>
       <audio id="audio-file" type="audio/mpeg"></audio>
-      <div class="controls">
-        <button id="play-audio-file" data-playing="false" role="switch" aria-checked="false" disabled
-          class="before-icon-button sound-sampler-button">
-          <span>Play/Pause</span>
-        </button>
-        <button id="replay-audio-file" class="before-icon-button replay-button" disabled>Replay</button>
-        <div class="control">
-          <label>Volume</label>
-          <input type="range" id="audio-file-volume" min="0" max="2" value="1" step="0.01" />
-          <output>1</output>
-        </div>
-        <div class="control">
-          <label>Pan</label>
-          <input type="range" id="audio-file-panner" min="-1" max="1" value="0" step="0.01" />
-          <output>0</output>
-        </div>
+    </section>
+    <section class="controls">
+      <button id="play-audio-file" data-playing="false" role="switch" aria-checked="false" disabled
+        class="before-icon-button sound-sampler-button">
+        <span>Play/Pause</span>
+      </button>
+      <button id="replay-audio-file" class="before-icon-button replay-button" disabled>Replay</button>
+      <div class="control">
+        <label>Volume</label>
+        <input type="range" id="audio-file-volume" min="0" max="2" value="1" step="0.01" />
+        <output>1</output>
+      </div>
+      <div class="control">
+        <label>Pan</label>
+        <input type="range" id="audio-file-panner" min="-1" max="1" value="0" step="0.01" />
+        <output>0</output>
       </div>
     </section>
   </article>

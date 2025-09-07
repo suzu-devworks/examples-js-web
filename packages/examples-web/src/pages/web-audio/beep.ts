@@ -2,19 +2,17 @@ export const content = `
   <article>
     <h2>Beep using AudioContext</h2>
     <p>Let's try playing a beep sound using AudioContext.</p>
-    <section>
-      <div class="controls">
-        <button id="play-beep" class="before-icon-button sound-sampler-button">Beep</button>
-        <div class="control">
-          <label for="beep-volume">Volume</label>
-          <input type="range" id="beep-volume" min="0" max="2" value="1" step="0.01" />
-          <output>1</output>
-        </div>
-        <div class="control">
-          <label for="beep-frequency">Frequency</label>
-          <input type="range" id="beep-frequency" min="261.6" max="523.3" value="440" step="0.1" />
-          <output>440Hz</output>
-        </div>
+    <section class="controls">
+      <button id="play-beep" class="before-icon-button sound-sampler-button">Beep</button>
+      <div class="control">
+        <label for="beep-volume">Volume</label>
+        <input type="range" id="beep-volume" min="0" max="2" value="1" step="0.01" />
+        <output>1</output>
+      </div>
+      <div class="control">
+        <label for="beep-frequency">Frequency</label>
+        <input type="range" id="beep-frequency" min="261.6" max="523.3" value="440" step="0.1" />
+        <output>440Hz</output>
       </div>
     </section>
   </article>
