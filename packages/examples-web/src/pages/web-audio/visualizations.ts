@@ -7,7 +7,12 @@ export const content = `
       <canvas id="visualizer" width="640" height="100"></canvas>
     </section>
     <section class="controls">
-      <button id="mute-visualizer" data-mute="false" class="before-icon-button mute-button" disabled>Mute</button>
+      <button id="play-visualizer" data-playing="false" role="switch" aria-checked="false"
+        class="before-icon-button sound-sampler-button playing-button">
+        <span>Play/Pause</span>
+      </button>
+      <button id="mute-visualizer" data-mute="false" disabled
+        class="before-icon-button mic-off-button mute-button">Mute</button>
       <div class="control">
         <label for="visual-visualizer">Visualizer setting</label>
         <select id="visual-visualizer" name="visual">
@@ -30,12 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   analyser.maxDecibels = -10 // The maximum power value in the scaling range for the FFT analysis data.
   analyser.smoothingTimeConstant = 0.85 // The averaging constant with the last analysis frame.
 
-  const distortion = audioCtx.createWaveShaper()
-  // const biquadFilter = audioCtx.createBiquadFilter()
   const gainNode = audioCtx.createGain()
-  // const convolver = audioCtx.createConvolver()
-
-  // const echoDelay = createEchoDelayEffect(audioCtx)
 
   // Set up canvas context for visualizer
   const canvas = document.querySelector<HTMLCanvasElement>("#visualizer")
@@ -51,12 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const HEIGHT = canvas.height
 
     const visualSetting = visualSelect!.value
-    console.log(visualSetting)
+    // console.log(visualSetting)
 
     if (visualSetting === "sinewave") {
       analyser.fftSize = 2048
       const bufferLength = analyser.fftSize
-      console.log(bufferLength)
 
       // We can use Float32Array instead of Uint8Array if we want higher precision
       // const dataArray = new Float32Array(bufferLength);
@@ -102,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (visualSetting == "frequencybars") {
       analyser.fftSize = 256
       const bufferLengthAlt = analyser.frequencyBinCount
-      console.log(bufferLengthAlt)
 
       // See comment above for Float32Array()
       const dataArrayAlt = new Uint8Array(bufferLengthAlt)
@@ -138,10 +136,29 @@ document.addEventListener("DOMContentLoaded", function () {
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT)
     }
   }
+
   visualSelect!.addEventListener("change", () => {
     cancelAnimationFrame(drawVisual)
     visualize()
   })
+
+  const main = async () => {
+    // Main block for doing the audio recording
+    const constraints = { audio: true }
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia(constraints)
+
+      const source = audioCtx.createMediaStreamSource(stream)
+      source.connect(gainNode)
+      gainNode.connect(analyser)
+      analyser.connect(audioCtx.destination)
+
+      visualize()
+    } catch (err) {
+      console.error("The following gUM error occurred: " + err)
+    }
+  }
 
   const muteButton = document.querySelector<HTMLButtonElement>("#mute-visualizer")
   muteButton!.addEventListener("click", function () {
@@ -154,21 +171,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })
 
-  // Main block for doing the audio recording
-  const constraints = { audio: true }
-  navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then((stream) => {
-      const source = audioCtx.createMediaStreamSource(stream)
-      source.connect(distortion)
-      distortion.connect(gainNode)
-      gainNode.connect(analyser)
-      analyser.connect(audioCtx.destination)
+  const playButton = document.querySelector<HTMLButtonElement>("#play-visualizer")
+  playButton!.addEventListener("click", async function () {
+    // check if context is in suspended state (autoplay policy)
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume()
+    }
 
-      visualize()
+    // play or pause track depending on state
+    if (this.dataset.playing === "false") {
+      await main()
       muteButton!.disabled = false
-    })
-    .catch(function (err) {
-      console.error("The following gUM error occurred: " + err)
-    })
+      this.dataset.playing = "true"
+    } else if (this.dataset.playing === "true") {
+      audioCtx.suspend()
+      if (muteButton!.dataset.mute === "true") {
+        muteButton?.click()
+      }
+      muteButton!.disabled = true
+      this.dataset.playing = "false"
+    }
+  })
 })

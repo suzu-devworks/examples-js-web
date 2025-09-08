@@ -12,10 +12,10 @@ export const content = `
     </section>
     <section class="controls">
       <button id="play-audio-file" data-playing="false" role="switch" aria-checked="false" disabled
-        class="before-icon-button sound-sampler-button">
+        class="before-icon-button sound-sampler-button playing-button">
         <span>Play/Pause</span>
       </button>
-      <button id="replay-audio-file" class="before-icon-button replay-button" disabled>Replay</button>
+      <button id="replay-audio-file" class="before-icon-button mic-off-button replay-button" disabled>Replay</button>
       <div class="control">
         <label>Volume</label>
         <input type="range" id="audio-file-volume" min="0" max="2" value="1" step="0.01" />
