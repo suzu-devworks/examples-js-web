@@ -16,7 +16,7 @@
     "express-session": "^1.18.2",
     "http-errors": "^2.0.0",
     "morgan": "^1.10.1",
-    "sass": "^1.90.0"
+    "sass": "^1.92.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
