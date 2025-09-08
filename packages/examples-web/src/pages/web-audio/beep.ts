@@ -28,7 +28,7 @@ const playBeepSound = (params: { gain?: number; frequency?: number }) => {
   oscillator.connect(gainNode)
   gainNode.connect(context.destination)
 
-  oscillator.type = "sine"
+  oscillator.type = "square"
   oscillator.frequency.setValueAtTime(params.frequency ?? 440, context.currentTime) // value in hertz
   gainNode.gain.value = params.gain ?? 1
 
