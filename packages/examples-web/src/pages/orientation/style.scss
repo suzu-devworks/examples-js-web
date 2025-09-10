@@ -1,0 +1,90 @@
+section:nth-child(n + 2) {
+  margin-top: 0.5rem;
+}
+
+.mdn-example {
+  box-shadow: 0 0 10px black;
+
+  p {
+    padding: 0.5em;
+    margin: 0;
+    font: 1em sans-serif;
+  }
+
+  ul {
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin: 0;
+    font: 1em monospace;
+    list-style: none;
+    background: black;
+  }
+
+  li {
+    display: inline-block;
+    padding: 0.5em;
+    margin: 0;
+    color: black;
+    background: white;
+  }
+}
+
+.before-icon-button {
+  position: relative;
+  padding-left: 18px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: "";
+    background-color: rgb(70 70 70);
+    transform: translateY(-50%);
+  }
+
+  &:disabled::before {
+    opacity: 0.4;
+  }
+}
+
+.mobile-rotate-lock-button {
+  &::before {
+    mask: url("/icons/mobile_rotate_lock.svg") 0 0 / contain;
+  }
+}
+
+/* For portrait, we want the toolbar on top */
+
+@media screen and (orientation: portrait) {
+  .mdn-example {
+    ul.toolbar {
+      width: 100%;
+    }
+  }
+}
+
+/* For landscape, we want the toolbar stick on the left */
+
+@media screen and (orientation: landscape) {
+  .mdn-example {
+    position: relative;
+    min-height: 7rem;
+
+    ul.toolbar {
+      position: absolute;
+      width: 2.65em;
+      height: 100%;
+    }
+
+    p {
+      margin-left: 2em;
+    }
+
+    li + li {
+      margin-top: 0.5em;
+    }
+  }
+}
