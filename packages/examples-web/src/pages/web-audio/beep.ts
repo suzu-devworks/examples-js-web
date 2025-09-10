@@ -3,7 +3,7 @@ export const content = `
     <h2>Beep using AudioContext</h2>
     <p>Let's try playing a beep sound using AudioContext.</p>
     <section class="controls">
-      <button id="play-beep" class="before-icon-button sound-sampler-button">Beep</button>
+      <button id="play-beep" class="playing-button">Beep</button>
       <div class="control">
         <label for="beep-volume">Volume</label>
         <input type="range" id="beep-volume" min="0" max="2" value="1" step="0.01" />

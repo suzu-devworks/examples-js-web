@@ -7,7 +7,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <h2>Using the Geolocation API</h2>
     <p>If the object exists, geolocation services are available.</p>
     <section class="controls">
-      <button id="get-geolocation">Get Map Link</button>
+      <button id="get-geolocation" class="search-location-button">Get Map Link</button>
       <div>
         <a id="map-link-geolocation" href=""></a>
       </div>
@@ -18,7 +18,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <p>If the position data changes (either by device movement or if more accurate geo information arrives),
       you can set up a callback function that is called with that updated position information.</p>
     <section class="controls">
-      <button id="watch-geolocation" data-watching="false" role="switch" aria-checked="false">
+      <button id="watch-geolocation" data-watching="false" role="switch" aria-checked="false" class="watching-location-button">
         <span>Watch</span>
       </button>
     </section>

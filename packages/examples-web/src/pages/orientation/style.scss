@@ -29,33 +29,6 @@ section:nth-child(n + 2) {
   }
 }
 
-.before-icon-button {
-  position: relative;
-  padding-left: 18px;
-
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    display: block;
-    width: 16px;
-    height: 16px;
-    content: "";
-    background-color: rgb(70 70 70);
-    transform: translateY(-50%);
-  }
-
-  &:disabled::before {
-    opacity: 0.4;
-  }
-}
-
-.mobile-rotate-lock-button {
-  &::before {
-    mask: url("/icons/mobile_rotate_lock.svg") 0 0 / contain;
-  }
-}
-
 /* For portrait, we want the toolbar on top */
 
 @media screen and (orientation: portrait) {

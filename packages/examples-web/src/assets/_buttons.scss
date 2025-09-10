@@ -1,0 +1,81 @@
+@mixin before-icon-button {
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  padding-left: 1.12rem;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: "";
+    transform: translateY(-50%);
+  }
+
+  &:disabled::before {
+    opacity: 0.4;
+  }
+}
+
+.playing-button {
+  @include before-icon-button;
+
+  &::before {
+    background-color: rgb(255 255 255 / 0.87);
+    mask: url("/icons/sound_sampler.svg") 0 0 / contain no-repeat;
+  }
+
+  &[data-playing="true"]::before {
+    background-color: rgb(10 140 220);
+    animation: blink-button-animation 2s infinite;
+  }
+}
+
+.replay-button {
+  @include before-icon-button;
+
+  &::before {
+    background-color: rgb(255 255 255 / 0.87);
+    mask: url("/icons/replay.svg") 0 0 / contain no-repeat;
+  }
+}
+
+.muting-button {
+  @include before-icon-button;
+
+  &::before {
+    background-color: rgb(255 255 255 / 0.87);
+    mask: url("/icons/mic_off.svg") 0 0 / contain no-repeat;
+  }
+
+  &[data-mute="true"]::before {
+    background-color: rgb(220 0 0);
+    animation: blink-button-animation 1s infinite;
+  }
+}
+
+.search-location-button {
+  @include before-icon-button;
+
+  &::before {
+    background-color: rgb(255 255 255 / 0.87);
+    mask: url("/icons/location_searching.svg") 0 0 / contain no-repeat;
+  }
+}
+
+.watching-location-button {
+  @include before-icon-button;
+
+  &::before {
+    background-color: rgb(255 255 255 / 0.87);
+    mask: url("/icons/location_off.svg") 0 0 / contain no-repeat;
+  }
+
+  &[data-watching="true"]::before {
+    background-color: rgb(10 220 140);
+    mask: url("/icons/location_on.svg") 0 0 / contain no-repeat;
+    animation: blink-button-animation 2s infinite;
+  }
+}
