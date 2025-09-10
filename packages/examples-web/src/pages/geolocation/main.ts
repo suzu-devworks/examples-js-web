@@ -5,7 +5,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <h1>Geolocation API</h1>
   <article>
     <h2>Using the Geolocation API</h2>
-    <p>A sample that extends FileReader to make asynchronous processing easier to write</p>
+    <p>If the object exists, geolocation services are available.</p>
     <section class="controls">
       <button id="get-geolocation">Get</button>
       <div>
