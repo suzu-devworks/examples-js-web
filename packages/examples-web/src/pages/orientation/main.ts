@@ -44,6 +44,4 @@ screen.orientation.addEventListener("change", () => {
   displayLocation()
 })
 
-document.addEventListener("DOMContentLoaded", function () {
-  displayLocation()
-})
+displayLocation()
