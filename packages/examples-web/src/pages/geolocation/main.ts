@@ -1,6 +1,7 @@
 import "@/assets/style.scss"
 import "./style.scss"
 
+document.title = `Geolocation API - ${import.meta.env.VITE_APP_TITLE}`
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <h1>Geolocation API</h1>
   <article>

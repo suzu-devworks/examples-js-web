@@ -1,6 +1,7 @@
 import "@/assets/style.scss"
 import "./style.scss"
 
+document.title = `Screen Orientation API - ${import.meta.env.VITE_APP_TITLE}`
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <h1>Screen Orientation API</h1>
   <article>

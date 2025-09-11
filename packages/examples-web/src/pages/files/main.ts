@@ -3,6 +3,7 @@ import "./style.scss"
 import { AsyncFileReader } from "@/utils/async_file_reader"
 import { toBase64 } from "./base64"
 
+document.title = `File API - ${import.meta.env.VITE_APP_TITLE}`
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <h1>File API</h1>
   <article>
