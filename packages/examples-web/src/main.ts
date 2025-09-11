@@ -9,6 +9,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <li><a href="pages/counters/">Counter (from create-vite's template)</a></li>
       <li>Web APIs
         <ul>
+          <li><a href="pages/battery/">Battery Status API</a></li>
           <li><a href="pages/files/">File API</a></li>
           <li><a href="pages/geolocation/">Geolocation API</a></li>
           <li><a href="pages/network/">Network Information API</a></li>
