@@ -6,7 +6,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <h1>${title}</h1>
   <nav>
     <ul>
-      <li><a href="./ages/counters/">Counter (from create-vite's template)</a></li>
+      <li><a href="./pages/counters/">Counter (from create-vite's template)</a></li>
       <li>Web APIs
         <ul>
           <li><a href="./pages/battery/">Battery Status API</a></li>
