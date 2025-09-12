@@ -1,3 +1,6 @@
+@use "./animation";
+@use "./buttons";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -5,7 +8,7 @@
   line-height: 1.5;
   color: rgb(255 255 255 / 0.87);
   color-scheme: light dark;
-  background-color: #242424;
+  background-color: rgb(36 36 36);
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,7 +41,13 @@ nav {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: rgb(33 53 71);
     background-color: #fff;
+  }
+
+  .before-icon-button {
+    &::before {
+      background-color: rgb(70 70 70);
+    }
   }
 }

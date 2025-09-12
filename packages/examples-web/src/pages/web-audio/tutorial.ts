@@ -11,11 +11,10 @@ export const content = `
       <audio id="audio-file" type="audio/mpeg"></audio>
     </section>
     <section class="controls">
-      <button id="play-audio-file" data-playing="false" role="switch" aria-checked="false" disabled
-        class="before-icon-button sound-sampler-button playing-button">
+      <button id="play-audio-file" data-playing="false" role="switch" aria-checked="false" class="playing-button" disabled>
         <span>Play/Pause</span>
       </button>
-      <button id="replay-audio-file" class="before-icon-button mic-off-button replay-button" disabled>Replay</button>
+      <button id="replay-audio-file" class="replay-button" disabled>Replay</button>
       <div class="control">
         <label>Volume</label>
         <input type="range" id="audio-file-volume" min="0" max="2" value="1" step="0.01" />

@@ -10,5 +10,6 @@ OPTION='-avr'
 # rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/_root/ ${DIST}
 
 # static projects
+rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-web/dist/ ${DIST}/examples-web/
 rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-pwa-camera/ ${DIST}/examples-pwa-camera/
 rsync ${OPTION} --exclude ${EXCLUDE} ${SOURCE}/examples-web-visualization/public/ ${DIST}/examples-web-visualization/

@@ -3,7 +3,17 @@
   "ignorePaths": [],
   "dictionaryDefinitions": [],
   "dictionaries": [],
-  "words": ["Avenir"],
+  "words": [
+    "Avenir",
+    "chargingchange",
+    "chargingtimechange",
+    "dischargingtimechange",
+    "levelchange",
+    "onchargingchange",
+    "onchargingtimechange",
+    "ondischargingtimechange",
+    "onlevelchange"
+  ],
   "ignoreWords": [],
   "import": ["../../.vscode/cspell.json"]
 }

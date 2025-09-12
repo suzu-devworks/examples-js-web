@@ -14,6 +14,7 @@
 ## References
 
 - <https://www.typescriptlang.org/>
+- <https://developer.mozilla.org/ja/docs/Web/API>
 
 ## Getting Started
 
