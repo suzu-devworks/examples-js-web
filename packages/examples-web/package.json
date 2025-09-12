@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc && vite build --base examples-js-web/examples-web/",
-    "preview": "vite preview --host 0.0.0.0 --base examples-js-web/examples-web/"
+    "build": "tsc && vite build --base /examples-js-web/examples-web/",
+    "preview": "vite preview --host 0.0.0.0 --base /examples-js-web/examples-web/"
   },
   "devDependencies": {
     "glob": "^11.0.3",
