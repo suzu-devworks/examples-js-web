@@ -7,12 +7,10 @@ export const content = `
       <canvas id="visualizer" width="640" height="100"></canvas>
     </section>
     <section class="controls">
-      <button id="play-visualizer" data-playing="false" role="switch" aria-checked="false"
-        class="before-icon-button sound-sampler-button playing-button">
+      <button id="play-visualizer" data-playing="false" role="switch" aria-checked="false" class="playing-button">
         <span>Play/Pause</span>
       </button>
-      <button id="mute-visualizer" data-mute="false" disabled
-        class="before-icon-button mic-off-button mute-button">Mute</button>
+      <button id="mute-visualizer" data-mute="false" class="muting-button" disabled>Mute</button>
       <div class="control">
         <label for="visual-visualizer">Visualizer setting</label>
         <select id="visual-visualizer" name="visual">
