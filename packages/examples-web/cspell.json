@@ -12,7 +12,8 @@
     "onchargingchange",
     "onchargingtimechange",
     "ondischargingtimechange",
-    "onlevelchange"
+    "onlevelchange",
+    "wimax"
   ],
   "ignoreWords": [],
   "import": ["../../.vscode/cspell.json"]
