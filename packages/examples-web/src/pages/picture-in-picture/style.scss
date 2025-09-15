@@ -1,0 +1,26 @@
+section:nth-child(n + 2) {
+  margin-top: 0.5rem;
+}
+
+.player {
+  display: inline-block;
+  border: 2px solid rgb(240 240 240 / 0.4);
+
+  output {
+    padding: 4px;
+  }
+}
+
+@media all and (display-mode: picture-in-picture) {
+  body {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 0.8em;
+  }
+
+  button {
+    margin: 0 0.125rem;
+  }
+}

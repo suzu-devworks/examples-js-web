@@ -13,6 +13,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
           <li><a href="./pages/files/">File API</a></li>
           <li><a href="./pages/geolocation/">Geolocation API</a></li>
           <li><a href="./pages/network/">Network Information API</a></li>
+          <li><a href="./pages/picture-in-picture/">Picture-in-Picture API</a></li>
           <li><a href="./pages/orientation/">Screen Orientation API</a></li>
           <li><a href="./pages/web-audio/">Web Audio API</a></li>
         </ul>
