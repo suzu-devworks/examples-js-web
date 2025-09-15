@@ -63,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return
     }
 
-    video!.src = URL.createObjectURL(file)
+    const blob = new Blob([file], { type: file.type })
+    video!.src = URL.createObjectURL(blob)
     video!.play()
     pipButton!.disabled = disabledPictureInPicture(false)
     console.log("playing...")
