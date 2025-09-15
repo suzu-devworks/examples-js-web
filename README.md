@@ -11,12 +11,13 @@ The content posted here may be useful to other developers who have the same prob
 
 However, please note that the code discussed here is based on my personal opinion and may contain many inaccuracies.
 
-## Hosting Server
+## Demo apps
 
-Start the Github Page
+I have some published on my Github page.
 
-- [examples-pwa-camera](https://suzu-devworks.github.io/examples-js-web/examples-pwa-camera/)
+- [examples-web](https://suzu-devworks.github.io/examples-js-web/examples-web/)
 - [examples-web-visualization](https://suzu-devworks.github.io/examples-js-web/examples-web-visualization/)
+- [examples-pwa-camera](https://suzu-devworks.github.io/examples-js-web/examples-pwa-camera/)
 
 ## More documents
 
