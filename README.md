@@ -18,7 +18,3 @@ I have some published on my Github page.
 - [examples-web](https://suzu-devworks.github.io/examples-js-web/examples-web/)
 - [examples-web-visualization](https://suzu-devworks.github.io/examples-js-web/examples-web-visualization/)
 - [examples-pwa-camera](https://suzu-devworks.github.io/examples-js-web/examples-pwa-camera/)
-
-## More documents
-
-- [See here ...](./docs/README.md)
