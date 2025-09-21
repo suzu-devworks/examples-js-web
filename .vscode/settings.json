@@ -18,9 +18,6 @@
   "[json][jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[markdown]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.markdownlint": "explicit"
