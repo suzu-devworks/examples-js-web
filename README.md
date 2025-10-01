@@ -5,16 +5,21 @@
 
 ## What is the purpose of this repository?
 
-This repository is the author's personal playground for learning JavaScript web applications and experimenting with its features.
+This repository is a personal practice space for the author to learn about and experiment with web application development using JavaScript.
 
-The content posted here may be useful to other developers who have the same problem.
+The content here may be useful to other developers who have the same problem.
 
-However, please note that the code discussed here is based on my personal opinion and may contain many inaccuracies.
+However, please note that the code described here is based on my personal opinion and may contain many inaccuracies.
 
-## Demo apps
+## Examples
 
-I have some published on my Github page.
+- [examples-web](./packages/examples-web/README.md)
+- [examples-web-visualization](./packages/examples-web-visualization/README.md)
+- [examples-pwa-camera](./packages/examples-pwa-camera/README.md)
+- [examples-express-ejs](./packages/examples-express-ejs/README.md)
 
-- [examples-web](https://suzu-devworks.github.io/examples-js-web/examples-web/)
-- [examples-web-visualization](https://suzu-devworks.github.io/examples-js-web/examples-web-visualization/)
-- [examples-pwa-camera](https://suzu-devworks.github.io/examples-js-web/examples-pwa-camera/)
+## Demo
+
+You can see some of that movement here.
+
+- [GitHub Pages](https://suzu-devworks.github.io/examples-js-web/)
