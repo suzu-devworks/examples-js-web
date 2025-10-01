@@ -1,9 +1,28 @@
 {
   "name": "DevContainer for Node.js",
-  "dockerComposeFile": ["compose.develop.yaml"],
+  "dockerComposeFile": [
+    "compose.develop.yaml"
+  ],
   "service": "dev",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "mounts": ["source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"],
+  "mounts": [
+    "source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
   "postCreateCommand": "sudo chown node node_modules",
-  "remoteUser": "node"
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "streetsidesoftware.code-spell-checker",
+        "DavidAnson.vscode-markdownlint",
+        "christian-kohler.npm-intellisense",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "DotJoshJohnson.xml",
+        "jock.svg"
+      ]
+    }
+  }
 }
