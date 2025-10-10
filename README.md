@@ -5,11 +5,11 @@
 
 ## What is the purpose of this repository?
 
-This repository is a personal practice space for the author to learn about and experiment with web application development using JavaScript.
+This repository is just my personal playground for learning web programming using JavaScript and TypeScript.
 
-The content here may be useful to other developers who have the same problem.
+The content here might actually be helpful to other developers facing similar issues.
 
-However, please note that the code described here is based on my personal opinion and may contain many inaccuracies.
+However, please keep in mind that this code is based solely on my own perspective and probably has lots of inaccurate or questionable parts!
 
 ## Examples
 
