@@ -6,17 +6,9 @@ I will also make it a PWA.
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-pwa-camera](#examples-pwa-camera)
-  - [References](#references)
-  - [Getting Started](#getting-started)
-  - [Development](#development)
-    - [How the project was initialized](#how-the-project-was-initialized)
-
-## References
-
-- [Media Capture and Streams API - MDN](https://developer.mozilla.org/ja/docs/Web/API/Media_Capture_and_Streams_API)
-- [Media Capture and Streams - W3C](https://www.w3.org/TR/mediacapture-streams/)
-- [MediaStream Image Capture - W3C](https://www.w3.org/TR/image-capture/)
+- [Getting Started](#getting-started)
+- [Development](#development)
+  - [How the project was initialized](#how-the-project-was-initialized)
 
 ## Getting Started
 
@@ -47,3 +39,7 @@ pnpm init
 
 pnpm add http-server
 ```
+
+- [Media Capture and Streams API - MDN](https://developer.mozilla.org/ja/docs/Web/API/Media_Capture_and_Streams_API)
+- [Media Capture and Streams - W3C](https://www.w3.org/TR/mediacapture-streams/)
+- [MediaStream Image Capture - W3C](https://www.w3.org/TR/image-capture/)

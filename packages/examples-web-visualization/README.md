@@ -2,11 +2,10 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-web-visualization](#examples-web-visualization)
-  - [Getting Started](#getting-started)
-  - [Index](#index)
-  - [Development](#development)
-    - [How the project was initialized](#how-the-project-was-initialized)
+- [Getting Started](#getting-started)
+- [Index](#index)
+- [Development](#development)
+  - [How the project was initialized](#how-the-project-was-initialized)
 
 ## Getting Started
 

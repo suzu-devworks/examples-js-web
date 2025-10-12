@@ -2,19 +2,13 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-web](#examples-web)
-  - [References](#references)
-  - [Getting Started](#getting-started)
-    - [Setup](#setup)
-    - [Development Server](#development-server)
-    - [Production](#production)
-  - [Development](#development)
-    - [How the project was initialized](#how-the-project-was-initialized)
-
-## References
-
-- <https://www.typescriptlang.org/>
-- <https://developer.mozilla.org/ja/docs/Web/API>
+- [Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Development Server](#development-server)
+  - [Production](#production)
+- [Development](#development)
+  - [How the project was initialized](#how-the-project-was-initialized)
+- [References](#references)
 
 ## Getting Started
 
@@ -64,3 +58,8 @@ pnpm --filter examples-web-ts add glob -D
 pnpm --filter examples-web-ts add sass-embedded -D
 
 ```
+
+## References
+
+- <https://www.typescriptlang.org/>
+- <https://developer.mozilla.org/ja/docs/Web/API>
