@@ -2,13 +2,9 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [examples-web-styling](#examples-web-styling)
-  - [References](#references)
-  - [Getting Started](#getting-started)
-  - [Development](#development)
-    - [How the project was initialized](#how-the-project-was-initialized)
-
-## References
+- [Getting Started](#getting-started)
+- [Development](#development)
+  - [How the project was initialized](#how-the-project-was-initialized)
 
 ## Getting Started
 
